@@ -1,0 +1,10 @@
+import type { ThemeTypes } from "../types/theme.type";
+declare const DARK_BLUE_THEME: ThemeTypes;
+declare const DARK_AQUA_THEME: ThemeTypes;
+declare const DARK_PURPLE_THEME: ThemeTypes;
+declare const DARK_GREEN_THEME: ThemeTypes;
+declare const DARK_CYAN_THEME: ThemeTypes;
+declare const DARK_ORANGE_THEME: ThemeTypes;
+declare const DARK_EMERALD_THEME: ThemeTypes;
+declare const DARK_DEFAULT_THEME: ThemeTypes;
+export { DARK_BLUE_THEME, DARK_AQUA_THEME, DARK_ORANGE_THEME, DARK_PURPLE_THEME, DARK_GREEN_THEME, DARK_CYAN_THEME, DARK_EMERALD_THEME, DARK_DEFAULT_THEME, };
