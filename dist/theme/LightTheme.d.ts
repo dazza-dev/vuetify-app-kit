@@ -1,0 +1,10 @@
+import type { ThemeTypes } from '../types/theme.type';
+declare const BLUE_THEME: ThemeTypes;
+declare const AQUA_THEME: ThemeTypes;
+declare const PURPLE_THEME: ThemeTypes;
+declare const GREEN_THEME: ThemeTypes;
+declare const CYAN_THEME: ThemeTypes;
+declare const ORANGE_THEME: ThemeTypes;
+declare const EMERALD_THEME: ThemeTypes;
+declare const DEFAULT_THEME: ThemeTypes;
+export { BLUE_THEME, AQUA_THEME, ORANGE_THEME, PURPLE_THEME, GREEN_THEME, CYAN_THEME, EMERALD_THEME, DEFAULT_THEME };
