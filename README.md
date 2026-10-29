@@ -139,8 +139,8 @@ It needs `common.mode.light` and `common.mode.dark` in the app's translations.
 
 `AppModal` caps the card at `90vh` and keeps the header and footer out of the scroll area, so
 actions stay visible on long forms. Besides `title`, `saveText`, `cancelText` and `saveDisabled`,
-it accepts `loading` (spinner on the save button) and `contentLoading` (spinner in place of the
-body while data loads).
+it accepts `icon` (an mdi icon shown in a tinted square before the title), `loading` (spinner on the
+save button) and `contentLoading` (spinner in place of the body while data loads).
 
 `ConfirmationModal` accepts `show`, `title`, `description`, `confirmButtonText`, `cancelButtonText`
 and `confirmColor` (defaults to `primary`; use `error` when the action is destructive). It emits

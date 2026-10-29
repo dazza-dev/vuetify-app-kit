@@ -1050,14 +1050,15 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			}, 8, ["to"]));
 		};
 	}
-}), Gt = { class: "text-h4 font-weight-bold" }, Kt = {
+}), Gt = { class: "d-flex align-center ga-3 min-w-0" }, Kt = { class: "text-h4 font-weight-bold" }, qt = {
 	key: 0,
 	class: "d-flex justify-center align-center py-12"
-}, qt = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, Jt = /*#__PURE__*/ U(/* @__PURE__ */ g({
 	__name: "AppModal",
 	props: {
 		modelValue: { type: Boolean },
 		title: {},
+		icon: { default: void 0 },
 		maxWidth: { default: 500 },
 		saveText: { default: void 0 },
 		cancelText: { default: void 0 },
@@ -1083,20 +1084,33 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 		let { t: n } = r(), i = e, a = t, o = s({
 			get: () => i.modelValue,
 			set: (e) => a("update:modelValue", e)
-		}), l = s(() => i.cancelText ?? n("common.cancel")), f = s(() => i.saveText ?? n("common.save"));
+		}), f = s(() => i.cancelText ?? n("common.cancel")), p = s(() => i.saveText ?? n("common.save"));
 		return (t, n) => {
-			let r = T("v-icon"), i = T("v-btn"), s = T("v-card-title"), p = T("v-progress-circular"), g = T("v-card-text"), _ = T("v-card-actions"), v = T("v-card"), y = T("v-dialog");
-			return x(), c(y, {
+			let r = T("v-icon"), i = T("v-avatar"), s = T("v-btn"), g = T("v-card-title"), _ = T("v-progress-circular"), v = T("v-card-text"), y = T("v-card-actions"), b = T("v-card"), S = T("v-dialog");
+			return x(), c(S, {
 				modelValue: o.value,
 				"onUpdate:modelValue": n[3] ||= (e) => o.value = e,
 				"max-width": e.maxWidth,
 				persistent: "",
 				"no-click-animation": ""
 			}, {
-				default: k(() => [h(v, { class: "app-modal-card d-flex flex-column" }, {
+				default: k(() => [h(b, { class: "app-modal-card d-flex flex-column" }, {
 					default: k(() => [
-						h(s, { class: "app-modal-header px-6 pt-5 pb-2 d-flex align-center justify-space-between flex-shrink-0" }, {
-							default: k(() => [d("span", Gt, D(e.title), 1), h(i, {
+						h(g, { class: "app-modal-header px-6 pt-5 pb-2 d-flex align-center justify-space-between flex-shrink-0" }, {
+							default: k(() => [d("div", Gt, [e.icon ? (x(), c(i, {
+								key: 0,
+								color: "primary",
+								variant: "tonal",
+								rounded: "lg",
+								size: "36",
+								class: "flex-shrink-0"
+							}, {
+								default: k(() => [h(r, { size: "20" }, {
+									default: k(() => [m(D(e.icon), 1)]),
+									_: 1
+								})]),
+								_: 1
+							})) : l("", !0), d("span", Kt, D(e.title), 1)]), h(s, {
 								icon: "",
 								variant: "text",
 								size: "small",
@@ -1110,29 +1124,29 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 							})]),
 							_: 1
 						}),
-						h(g, { class: "app-modal-body px-6 pb-2 flex-grow-1 overflow-y-auto" }, {
-							default: k(() => [e.contentLoading ? (x(), u("div", Kt, [h(p, {
+						h(v, { class: "app-modal-body px-6 pb-2 flex-grow-1 overflow-y-auto" }, {
+							default: k(() => [e.contentLoading ? (x(), u("div", qt, [h(_, {
 								indeterminate: "",
 								color: "primary",
 								size: "48"
 							})])) : w(t.$slots, "default", {}, void 0, !0, 1)]),
 							_: 3
 						}),
-						h(_, { class: "app-modal-footer px-6 pb-5 pt-3 d-flex justify-end ga-2 flex-shrink-0" }, {
-							default: k(() => [h(i, {
+						h(y, { class: "app-modal-footer px-6 pb-5 pt-3 d-flex justify-end ga-2 flex-shrink-0" }, {
+							default: k(() => [h(s, {
 								variant: "text",
 								onClick: n[1] ||= (e) => a("cancel")
 							}, {
-								default: k(() => [m(D(l.value), 1)]),
+								default: k(() => [m(D(f.value), 1)]),
 								_: 1
-							}), h(i, {
+							}), h(s, {
 								color: "primary",
 								variant: "flat",
 								loading: e.loading,
 								disabled: e.saveDisabled || e.contentLoading,
 								onClick: n[2] ||= (e) => a("save")
 							}, {
-								default: k(() => [m(D(f.value), 1)]),
+								default: k(() => [m(D(p.value), 1)]),
 								_: 1
 							}, 8, ["loading", "disabled"])]),
 							_: 1
@@ -1144,16 +1158,16 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			}, 8, ["modelValue", "max-width"]);
 		};
 	}
-}), [["__scopeId", "data-v-1f4e0c36"]]), Jt = { class: "image-uploader" }, Yt = { class: "image-uploader-card" }, Xt = ["src", "alt"], Zt = {
+}), [["__scopeId", "data-v-c40b0ea1"]]), Yt = { class: "image-uploader" }, Xt = { class: "image-uploader-card" }, Zt = ["src", "alt"], Qt = {
 	key: 2,
 	class: "image-uploader-loading-overlay"
-}, Qt = { class: "image-uploader-actions" }, $t = ["disabled"], en = ["disabled"], tn = {
+}, $t = { class: "image-uploader-actions" }, en = ["disabled"], tn = ["disabled"], nn = {
 	key: 0,
 	class: "text-caption text-medium-emphasis mt-1"
-}, nn = {
+}, rn = {
 	key: 1,
 	class: "text-caption text-error mt-1"
-}, rn = ["accept"], an = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, an = ["accept"], on = /*#__PURE__*/ U(/* @__PURE__ */ g({
 	__name: "ImageUploader",
 	props: {
 		modelValue: {},
@@ -1211,21 +1225,21 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 		};
 		return (t, n) => {
 			let r = T("v-progress-circular");
-			return x(), u("div", Jt, [
-				d("div", Yt, [d("div", { class: y(["image-uploader-preview", { "image-uploader-preview--dark": e.dark }]) }, [e.modelValue ? (x(), u("img", {
+			return x(), u("div", Yt, [
+				d("div", Xt, [d("div", { class: y(["image-uploader-preview", { "image-uploader-preview--dark": e.dark }]) }, [e.modelValue ? (x(), u("img", {
 					key: 0,
 					src: e.modelValue,
 					alt: e.altText
-				}, null, 8, Xt)) : (x(), c(O(ue), {
+				}, null, 8, Zt)) : (x(), c(O(ue), {
 					key: 1,
 					size: 40,
 					"stroke-width": "1.5",
 					class: "image-uploader-placeholder-icon"
-				})), f.value ? (x(), u("div", Zt, [h(r, {
+				})), f.value ? (x(), u("div", Qt, [h(r, {
 					indeterminate: "",
 					color: "primary",
 					size: "32"
-				})])) : l("", !0)], 2), d("div", Qt, [d("button", {
+				})])) : l("", !0)], 2), d("div", $t, [d("button", {
 					type: "button",
 					class: "image-uploader-btn",
 					disabled: f.value,
@@ -1233,7 +1247,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 				}, [h(O(pe), {
 					size: 18,
 					"stroke-width": "2"
-				}), d("span", null, D(t.$t("common.change")), 1)], 8, $t), d("button", {
+				}), d("span", null, D(t.$t("common.change")), 1)], 8, en), d("button", {
 					type: "button",
 					class: "image-uploader-btn image-uploader-btn--danger",
 					disabled: f.value || !e.modelValue,
@@ -1241,9 +1255,9 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 				}, [h(O(fe), {
 					size: 18,
 					"stroke-width": "2"
-				}), d("span", null, D(t.$t("common.remove")), 1)], 8, en)])]),
-				e.helpText ? (x(), u("div", tn, D(e.helpText), 1)) : l("", !0),
-				p.value ? (x(), u("div", nn, D(p.value), 1)) : l("", !0),
+				}), d("span", null, D(t.$t("common.remove")), 1)], 8, tn)])]),
+				e.helpText ? (x(), u("div", nn, D(e.helpText), 1)) : l("", !0),
+				p.value ? (x(), u("div", rn, D(p.value), 1)) : l("", !0),
 				d("input", {
 					ref_key: "fileInput",
 					ref: s,
@@ -1251,11 +1265,11 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					accept: e.accept,
 					class: "d-none",
 					onChange: v
-				}, null, 40, rn)
+				}, null, 40, an)
 			]);
 		};
 	}
-}), [["__scopeId", "data-v-8d1a368c"]]), on = /* @__PURE__ */ g({
+}), [["__scopeId", "data-v-8d1a368c"]]), sn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppInput",
 	props: {
@@ -1304,7 +1318,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), sn = /* @__PURE__ */ g({
+}), cn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppSelect",
 	props: {
@@ -1353,7 +1367,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), cn = /* @__PURE__ */ g({
+}), ln = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppAutocomplete",
 	props: {
@@ -1402,7 +1416,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), ln = /* @__PURE__ */ g({
+}), un = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppTextarea",
 	props: {
@@ -1439,7 +1453,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), un = /* @__PURE__ */ g({
+}), dn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppPasswordInput",
 	props: {
@@ -1490,13 +1504,13 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), dn = {
+}), fn = {
 	key: 0,
 	class: "text-body-2 mb-1 text-medium-emphasis"
-}, fn = ["title"], pn = {
+}, pn = ["title"], mn = {
 	key: 1,
 	class: "text-caption text-error mt-1"
-}, mn = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, hn = /*#__PURE__*/ U(/* @__PURE__ */ g({
 	__name: "AppColorPicker",
 	props: {
 		modelValue: {},
@@ -1513,7 +1527,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 		return (t, n) => {
 			let r = T("v-icon"), s = T("v-color-picker"), p = T("v-text-field"), g = T("v-btn"), _ = T("v-card-actions"), y = T("v-card"), b = T("v-menu");
 			return x(), u("div", null, [
-				e.label ? (x(), u("div", dn, D(e.label), 1)) : l("", !0),
+				e.label ? (x(), u("div", fn, D(e.label), 1)) : l("", !0),
 				h(b, {
 					modelValue: i.value,
 					"onUpdate:modelValue": n[4] ||= (e) => i.value = e,
@@ -1531,7 +1545,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					}, {
 						default: k(() => [...n[5] ||= [m("mdi-eyedropper", -1)]]),
 						_: 1
-					}))], 16, fn)]),
+					}))], 16, pn)]),
 					default: k(() => [h(y, {
 						elevation: "4",
 						rounded: "lg"
@@ -1565,23 +1579,23 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					})]),
 					_: 1
 				}, 8, ["modelValue"]),
-				f.value ? (x(), u("div", pn, D(o.value[0]), 1)) : l("", !0)
+				f.value ? (x(), u("div", mn, D(o.value[0]), 1)) : l("", !0)
 			]);
 		};
 	}
 }), [["__scopeId", "data-v-392bbcee"]]);
 //#endregion
 //#region src/utils/error.ts
-function hn(e, t) {
+function gn(e, t) {
 	return e instanceof Error ? e.message : e && typeof e == "object" && "message" in e ? String(e.message) : t;
 }
 //#endregion
 //#region src/utils/logger.ts
 var Q = !1, $ = !1;
-function gn(e) {
+function _n(e) {
 	Q = e.isDev, $ = e.sentryEnabled;
 }
-var _n = {
+var vn = {
 	error(e, ...t) {
 		if (Q && console.error(e, ...t), $) {
 			let n = t.find((e) => e instanceof Error);
@@ -1606,13 +1620,13 @@ var _n = {
 };
 //#endregion
 //#region src/composables/useApiCall.ts
-function vn(e) {
+function yn(e) {
 	return async function(t, n = "API request failed:") {
 		e.value = !0;
 		try {
 			return await t();
 		} catch (e) {
-			throw _n.error(n, hn(e, "Unknown error")), e;
+			throw vn.error(n, gn(e, "Unknown error")), e;
 		} finally {
 			e.value = !1;
 		}
@@ -1620,11 +1634,11 @@ function vn(e) {
 }
 //#endregion
 //#region src/constants/datatable.ts
-var yn = 10, bn = (e) => {
+var bn = 10, xn = (e) => {
 	let { locale: t } = r({ useScope: "global" });
 	te(() => t.value, () => {
 		e();
 	}), e();
 };
 //#endregion
-export { M as AQUA_THEME, cn as AppAutocomplete, mn as AppColorPicker, on as AppInput, Wt as AppLink, qt as AppModal, un as AppPasswordInput, sn as AppSelect, ln as AppTextarea, j as BLUE_THEME, xt as BlankLayout, Re as BreadcrumbBar, F as CYAN_THEME, Ze as ConfirmationModal, V as DARK_AQUA_THEME, B as DARK_BLUE_THEME, be as DARK_CYAN_THEME, Ce as DARK_DEFAULT_THEME, Se as DARK_EMERALD_THEME, ye as DARK_GREEN_THEME, xe as DARK_ORANGE_THEME, H as DARK_PURPLE_THEME, yn as DEFAULT_ITEMS_PER_PAGE, R as DEFAULT_THEME, L as EMERALD_THEME, Ot as ErrorPage, Ee as FormCard, bt as FullLayout, P as GREEN_THEME, ct as HeaderLeftWidgetsKey, lt as HeaderRightWidgetsKey, an as ImageUploader, Vt as LanguagesMenu, st as LogoComponentKey, dt as LogoLinkKey, Ht as ModeToggle, Ct as NotFoundArt, I as ORANGE_THEME, N as PURPLE_THEME, Ue as PageHeader, Oe as ParentCard, Ge as PillTabs, ut as SidebarItemsKey, Ke as TagChip, Xe as TextItem, $e as VuetifyAppKit, gn as configureLogger, we as createAppVuetify, hn as getErrorMessage, et as getInitials, tt as getSubdomain, nt as getTenantFromPath, G as getTenantStorageKey, Z as getUserLanguage, _n as logger, ot as setCustomizerDefaults, jt as setDefaultLanguage, At as setI18nLanguage, Mt as setupI18n, vn as useApiCall, J as useCustomizerStore, bn as useI18nTranslation };
+export { M as AQUA_THEME, ln as AppAutocomplete, hn as AppColorPicker, sn as AppInput, Wt as AppLink, Jt as AppModal, dn as AppPasswordInput, cn as AppSelect, un as AppTextarea, j as BLUE_THEME, xt as BlankLayout, Re as BreadcrumbBar, F as CYAN_THEME, Ze as ConfirmationModal, V as DARK_AQUA_THEME, B as DARK_BLUE_THEME, be as DARK_CYAN_THEME, Ce as DARK_DEFAULT_THEME, Se as DARK_EMERALD_THEME, ye as DARK_GREEN_THEME, xe as DARK_ORANGE_THEME, H as DARK_PURPLE_THEME, bn as DEFAULT_ITEMS_PER_PAGE, R as DEFAULT_THEME, L as EMERALD_THEME, Ot as ErrorPage, Ee as FormCard, bt as FullLayout, P as GREEN_THEME, ct as HeaderLeftWidgetsKey, lt as HeaderRightWidgetsKey, on as ImageUploader, Vt as LanguagesMenu, st as LogoComponentKey, dt as LogoLinkKey, Ht as ModeToggle, Ct as NotFoundArt, I as ORANGE_THEME, N as PURPLE_THEME, Ue as PageHeader, Oe as ParentCard, Ge as PillTabs, ut as SidebarItemsKey, Ke as TagChip, Xe as TextItem, $e as VuetifyAppKit, _n as configureLogger, we as createAppVuetify, gn as getErrorMessage, et as getInitials, tt as getSubdomain, nt as getTenantFromPath, G as getTenantStorageKey, Z as getUserLanguage, vn as logger, ot as setCustomizerDefaults, jt as setDefaultLanguage, At as setI18nLanguage, Mt as setupI18n, yn as useApiCall, J as useCustomizerStore, xn as useI18nTranslation };

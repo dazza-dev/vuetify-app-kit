@@ -1,6 +1,7 @@
 type __VLS_Props = {
     modelValue: boolean;
     title: string;
+    icon?: string;
     maxWidth?: number | string;
     saveText?: string;
     cancelText?: string;
@@ -8,9 +9,9 @@ type __VLS_Props = {
     loading?: boolean;
     contentLoading?: boolean;
 };
-declare var __VLS_45: {};
+declare var __VLS_57: {};
 type __VLS_Slots = {} & {
-    default?: (props: typeof __VLS_45) => any;
+    default?: (props: typeof __VLS_57) => any;
 };
 declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: boolean) => any;
@@ -21,6 +22,7 @@ declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {},
     onSave?: (() => any) | undefined;
     onCancel?: (() => any) | undefined;
 }>, {
+    icon: string;
     maxWidth: number | string;
     loading: boolean;
     saveText: string;

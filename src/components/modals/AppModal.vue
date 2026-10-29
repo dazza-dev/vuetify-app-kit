@@ -2,7 +2,12 @@
     <v-dialog v-model="dialog" :max-width="maxWidth" persistent no-click-animation>
         <v-card class="app-modal-card d-flex flex-column">
             <v-card-title class="app-modal-header px-6 pt-5 pb-2 d-flex align-center justify-space-between flex-shrink-0">
-                <span class="text-h4 font-weight-bold">{{ title }}</span>
+                <div class="d-flex align-center ga-3 min-w-0">
+                    <v-avatar v-if="icon" color="primary" variant="tonal" rounded="lg" size="36" class="flex-shrink-0">
+                        <v-icon size="20">{{ icon }}</v-icon>
+                    </v-avatar>
+                    <span class="text-h4 font-weight-bold">{{ title }}</span>
+                </div>
                 <v-btn icon variant="text" size="small" @click="emit('cancel')">
                     <v-icon size="18">mdi-close</v-icon>
                 </v-btn>
@@ -37,6 +42,7 @@ const props = withDefaults(
     defineProps<{
         modelValue: boolean;
         title: string;
+        icon?: string;
         maxWidth?: number | string;
         saveText?: string;
         cancelText?: string;
@@ -45,6 +51,7 @@ const props = withDefaults(
         contentLoading?: boolean;
     }>(),
     {
+        icon: undefined,
         maxWidth: 500,
         saveText: undefined,
         cancelText: undefined,
