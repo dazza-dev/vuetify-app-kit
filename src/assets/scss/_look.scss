@@ -1,0 +1,615 @@
+/* Shared look: white work area on a soft grey, compact tables with a neutral header, soft status chips with a dot,
+   and buttons and fields with small rounded corners. The theme color only marks actions and selections. */
+
+$radius: 8px;
+$radius-card: 12px;
+$field-border: #d1d6de;
+$field-border-hover: #aeb5c0;
+
+/* Header: flat, separated by a line */
+.v-app-bar.v-toolbar {
+    box-shadow: none !important;
+    border-bottom: 1px solid rgb(var(--v-theme-borderColor)) !important;
+}
+
+/* Work area: a soft grey so white cards stand out */
+.v-main {
+    background: #f4f5f7 !important;
+}
+
+.v-theme--dark .v-main {
+    background: rgb(var(--v-theme-background)) !important;
+}
+
+.v-main .v-card {
+    border-radius: $radius-card !important;
+}
+
+/* A card holds its table edge to edge, below the header */
+.v-main .v-card-text:has(> .v-table),
+.v-main .v-card-text:has(> .v-window > .v-window__container > .v-window-item > .v-table) {
+    padding: 0 !important;
+
+    .v-window-item:has(> .v-table) {
+        padding: 0 !important;
+    }
+
+    > .v-table {
+        border: 0 !important;
+        border-radius: 0 0 $radius-card $radius-card !important;
+    }
+}
+
+/* Buttons: small rounded corners, sentence case, 14px text on a 36px button; filled ones get a faint shadow and
+   text ones in a dialog footer become white bordered buttons */
+.v-btn {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-weight: 500;
+}
+
+.v-btn:not(.v-btn--icon) {
+    border-radius: $radius !important;
+}
+
+.v-btn.v-btn--size-default:not(.v-btn--icon) {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 14px !important;
+    font-size: 0.875rem !important;
+
+    .v-icon {
+        font-size: 18px;
+    }
+}
+
+.v-btn.v-btn--size-small:not(.v-btn--icon) {
+    font-size: 0.8125rem !important;
+}
+
+.v-btn.v-btn--size-large:not(.v-btn--icon) {
+    height: 40px !important;
+    font-size: 0.9375rem !important;
+}
+
+.v-btn:is(.v-btn--variant-flat, .v-btn--variant-elevated):not(.v-btn--icon):not(.v-btn--disabled) {
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.v-overlay__content > .v-card .v-card-actions .v-btn--variant-text:not(.v-btn--icon),
+.app-modal-card .v-btn--variant-text:not(.v-btn--icon) {
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.15);
+    background: rgb(var(--v-theme-surface));
+    color: rgb(var(--v-theme-on-surface)) !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+
+    .v-btn__overlay {
+        opacity: 0;
+    }
+
+    &:hover {
+        background: rgba(var(--v-theme-on-surface), 0.04);
+    }
+}
+
+/* Dialogs: a quieter title and fields closer together */
+.app-modal-card {
+    .app-modal-header {
+        font-size: 1.125rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0;
+    }
+
+    .v-card-text .v-row {
+        row-gap: 16px;
+    }
+}
+
+/* Switches: a 36×20 track like a phone toggle, grey when off and solid primary when on, with a white thumb */
+.v-switch.v-switch--inset {
+    .v-selection-control__wrapper {
+        width: 36px;
+        height: 20px;
+    }
+
+    .v-switch__track {
+        width: 36px;
+        min-width: 36px;
+        height: 20px;
+        border-radius: 999px;
+        opacity: 1 !important;
+        background-color: #e2e8f0 !important;
+        box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+        transition: background-color 0.15s;
+    }
+
+    .v-selection-control--dirty .v-switch__track {
+        background-color: rgb(var(--v-theme-primary)) !important;
+        box-shadow: none;
+    }
+
+    .v-selection-control__input {
+        width: 20px;
+        height: 20px;
+        transform: translateX(-8px) !important;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .v-selection-control--dirty .v-selection-control__input {
+        transform: translateX(8px) !important;
+    }
+
+    .v-switch__thumb {
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.3);
+    }
+
+    .v-label {
+        padding-inline-start: 10px;
+    }
+}
+
+/* Checkboxes: an 18px rounded square with a thin border, filled with the primary colour and a white tick when on */
+.v-selection-control .v-selection-control__input > .v-icon:is(.mdi-checkbox-blank-outline, .mdi-checkbox-marked, .mdi-minus-box) {
+    width: 18px;
+    height: 18px;
+    font-size: 0;
+    opacity: 1;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+        border: 1px solid $field-border-hover;
+        border-radius: 5px;
+        background: #fff center / 12px no-repeat;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+        transition:
+            background-color 0.12s,
+            border-color 0.12s;
+    }
+}
+
+.v-selection-control .v-selection-control__input > .v-icon:is(.mdi-checkbox-marked, .mdi-minus-box)::before {
+    border-color: rgb(var(--v-theme-primary));
+    background-color: rgb(var(--v-theme-primary));
+}
+
+.v-selection-control .v-selection-control__input > .v-icon.mdi-checkbox-marked::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.2 5 8.5l4.5-5'/%3E%3C/svg%3E");
+}
+
+.v-selection-control .v-selection-control__input > .v-icon.mdi-minus-box::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M3 6h6'/%3E%3C/svg%3E");
+}
+
+.v-checkbox-btn .v-selection-control__input::before {
+    display: none;
+}
+
+.v-btn-group {
+    border-radius: $radius !important;
+
+    .v-btn {
+        border-radius: 0 !important;
+    }
+}
+
+/* Inputs: the label is the placeholder and floats into a gap in the border on focus; a thin border that turns the
+   primary colour on focus, and a grey fill when disabled */
+.v-field {
+    border-radius: $radius !important;
+}
+
+/* Every field is 38px tall whatever its density, so forms, filters and filter chips line up */
+.v-input.v-input--density-default,
+.v-input.v-input--density-comfortable,
+.v-input.v-input--density-compact {
+    --v-input-control-height: 38px;
+
+    .v-field.v-field {
+        --v-field-input-padding-top: 6px;
+        --v-field-input-padding-bottom: 6px;
+    }
+}
+
+.v-field.v-field--variant-outlined {
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    transition: box-shadow 0.15s;
+
+    .v-field__outline {
+        --v-field-border-width: 1px;
+        --v-field-border-opacity: 1;
+        transition: opacity 0.15s;
+    }
+
+    &:not(.v-field--focused):not(.v-field--error) {
+        .v-field__outline__start,
+        .v-field__outline__end,
+        .v-field__outline__notch::before,
+        .v-field__outline__notch::after {
+            border-color: $field-border;
+        }
+
+        &:hover {
+            .v-field__outline__start,
+            .v-field__outline__end,
+            .v-field__outline__notch::before,
+            .v-field__outline__notch::after {
+                border-color: $field-border-hover;
+            }
+        }
+    }
+
+    .v-field__prepend-inner > .v-icon,
+    .v-field__append-inner > .v-icon {
+        font-size: 20px;
+        color: rgba(var(--v-theme-on-surface), 0.7);
+        opacity: 1;
+    }
+
+    // The floating label sits in a gap of the top border.
+    &.v-field--active .v-field__outline__notch::before {
+        border-top-color: transparent !important;
+    }
+
+    &.v-field--focused {
+        .v-field__outline {
+            --v-field-border-width: 1px;
+            --v-field-border-opacity: 1;
+        }
+    }
+
+    &.v-field--error {
+        .v-field__outline {
+            --v-field-border-opacity: 1;
+        }
+    }
+
+    &.v-field--disabled {
+        background: rgba(var(--v-theme-on-surface), 0.04);
+        opacity: 1;
+
+        .v-field__input,
+        input,
+        textarea {
+            color: rgba(var(--v-theme-on-surface), 0.45);
+        }
+    }
+
+    .v-field-label:not(.v-field-label--floating) {
+        color: rgba(var(--v-theme-on-surface), 0.55);
+        opacity: 1;
+    }
+
+    .v-field-label--floating {
+        font-size: 0.75rem !important;
+        font-weight: 500;
+        color: rgba(var(--v-theme-on-surface), 0.65);
+    }
+
+    &.v-field--focused .v-field-label--floating {
+        color: rgb(var(--v-theme-primary));
+    }
+
+    &.v-field--error .v-field-label--floating {
+        color: rgb(var(--v-theme-error));
+    }
+}
+
+.v-input__details .v-messages__message {
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Tables: airy rows, a grey header band with sentence-case titles, and a soft highlight on hover */
+.v-main .v-table {
+    border-radius: $radius-card;
+    overflow: hidden;
+    font-size: 0.875rem;
+
+    > .v-table__wrapper > table > thead > tr > th {
+        background: rgba(var(--v-theme-on-surface), 0.03) !important;
+        color: rgba(var(--v-theme-on-surface), 0.6) !important;
+        font-weight: 500 !important;
+        font-size: 0.875rem !important;
+        height: 46px !important;
+        border-bottom: 1px solid rgb(var(--v-theme-borderColor)) !important;
+    }
+
+    > .v-table__wrapper > table > tbody > tr > td {
+        height: 64px !important;
+        font-size: 0.875rem;
+        border-bottom-color: rgba(var(--v-theme-on-surface), 0.06) !important;
+    }
+
+    > .v-table__wrapper > table > tbody > tr {
+        transition: background 0.12s;
+    }
+
+    > .v-table__wrapper > table > tbody > tr:hover > td {
+        background: rgba(var(--v-theme-on-surface), 0.025);
+    }
+
+    > .v-table__wrapper > table > tbody > tr:last-child > td {
+        border-bottom: 0 !important;
+    }
+}
+
+/* Links inside tables read as text, underlined on hover */
+.v-main .v-table tbody td a:not(.v-btn) {
+    color: rgb(var(--v-theme-on-surface)) !important;
+    font-size: inherit !important;
+    font-weight: 600 !important;
+
+    &:hover {
+        text-decoration: underline !important;
+    }
+}
+
+/* Row actions: each icon button is its own small bordered square with a neutral icon; delete stays red */
+.v-main .v-table tbody td:last-child:has(> .v-btn--icon) {
+    white-space: nowrap;
+
+    > .v-btn--icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 0 0 6px !important;
+        border-radius: $radius !important;
+        border: 1px solid rgb(var(--v-theme-borderColor));
+        background: rgb(var(--v-theme-surface));
+        color: rgba(var(--v-theme-on-surface), 0.6);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+        transition:
+            background 0.12s,
+            color 0.12s;
+
+        &:first-child {
+            margin-left: 0 !important;
+        }
+
+        &:hover {
+            background: rgba(var(--v-theme-on-surface), 0.05);
+            color: rgb(var(--v-theme-on-surface));
+        }
+
+        .v-btn__overlay {
+            display: none;
+        }
+
+        .text-primary,
+        .text-info,
+        .text-secondary,
+        .text-success {
+            color: inherit !important;
+        }
+
+        svg,
+        .v-icon {
+            width: 18px !important;
+            height: 18px !important;
+            font-size: 18px !important;
+        }
+
+        &:has(.text-error) {
+            color: rgb(var(--v-theme-error));
+
+            &:hover {
+                background: rgba(var(--v-theme-error), 0.08);
+            }
+        }
+
+        &.v-btn--disabled {
+            opacity: 1;
+            color: rgba(var(--v-theme-on-surface), 0.25) !important;
+
+            .text-error {
+                color: inherit !important;
+            }
+        }
+    }
+}
+
+/* Listing footers: a light divider, muted text and rounded page buttons */
+.v-main .v-data-table-footer {
+    border-top: 1px solid rgb(var(--v-theme-borderColor));
+    padding: 8px 16px !important;
+    font-size: 0.8125rem;
+    color: rgba(var(--v-theme-on-surface), 0.65);
+
+    .v-btn {
+        border-radius: $radius !important;
+    }
+}
+
+.v-data-table .v-data-table__th .v-data-table-header__content span {
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+/* Status chips: soft background, colored text and a dot */
+.v-chip.v-chip--variant-tonal {
+    border-radius: 6px !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+
+    .v-chip__content::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+        margin-right: 6px;
+    }
+}
+
+@each $tone in primary, secondary, success, error, warning, info {
+    .v-chip.v-chip--variant-tonal.bg-light#{$tone} {
+        color: rgb(var(--v-theme-#{$tone})) !important;
+    }
+}
+
+/* Progress bars: a faint track, so an empty bar reads as empty */
+.v-progress-linear__background {
+    opacity: 0.15 !important;
+}
+
+/* Dialogs */
+.v-overlay__content > .v-card {
+    border-radius: $radius-card !important;
+}
+
+/* Soft icon badge used by stat cards */
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Grey tag for switched-off states (inactive, closed); the theme has no neutral colour */
+.bg-lightneutral {
+    background-color: #f1f5f9 !important;
+    color: #64748b !important;
+}
+
+/* List toolbar above a table: a search box, dashed filter chips and the result count on one wrapping row */
+.table-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    > .v-input {
+        flex: 0 1 300px;
+        min-width: 200px;
+    }
+
+    > .v-input.v-switch {
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+}
+
+.table-toolbar__count {
+    margin-left: 6px;
+    font-size: 0.875rem;
+    color: rgba(var(--v-theme-on-surface), 0.55);
+}
+
+/* Dropdown menus of selects, autocompletes and filter chips: a rounded card with a thin border and a soft shadow,
+   compact rows with a grey rounded highlight, and small checkboxes */
+.v-overlay__content:is(.v-select__content, .v-autocomplete__content, .v-combobox__content, .app-menu) {
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.1);
+    border-radius: 10px !important;
+    background: rgb(var(--v-theme-surface));
+    box-shadow:
+        0 12px 32px -12px rgba(15, 23, 42, 0.22),
+        0 4px 8px -4px rgba(15, 23, 42, 0.06) !important;
+    overflow: hidden;
+
+    > .v-card,
+    > .v-list,
+    > .v-card > .v-list {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent;
+    }
+
+    .v-list {
+        padding: 4px !important;
+    }
+
+    .v-list-item {
+        min-height: 36px !important;
+        padding: 0 10px !important;
+        border-radius: 6px;
+        margin: 1px 0;
+    }
+
+    .v-list-item-title {
+        font-size: 0.875rem !important;
+        font-weight: 400;
+        letter-spacing: 0 !important;
+        line-height: 1.3;
+    }
+
+    .v-list-item__overlay {
+        display: none;
+    }
+
+    .v-list-item:hover {
+        background: rgba(var(--v-theme-on-surface), 0.05);
+    }
+
+    .v-list-item--active {
+        color: rgb(var(--v-theme-on-surface)) !important;
+        background: rgba(var(--v-theme-primary), 0.08);
+
+        .v-list-item-title {
+            font-weight: 500;
+        }
+    }
+
+    .v-list-item__prepend > .v-list-item-action,
+    .v-list-item__prepend .v-selection-control {
+        --v-selection-control-size: 28px;
+        margin-inline-end: 4px;
+    }
+
+    .v-list-item__prepend .v-icon {
+        font-size: 20px;
+    }
+
+    .v-list-item__spacer {
+        width: 6px !important;
+    }
+}
+
+/* Image uploader frame matches the field border */
+.image-uploader-card {
+    border-color: $field-border !important;
+}
+
+/* Keyboard focus on switches and checkboxes */
+.v-selection-control--focus-visible {
+    .v-switch__track,
+    .v-selection-control__input > .v-icon::before {
+        outline: 2px solid rgba(var(--v-theme-primary), 0.4);
+        outline-offset: 2px;
+    }
+}
+
+/* Field with its prepend icon in a grey segment joined to the input, split by the border colour */
+.v-input.field-addon .v-field {
+    padding-inline-start: 0;
+
+    .v-field__prepend-inner {
+        align-self: stretch;
+        align-items: center;
+        padding: 0 11px;
+        margin-inline-end: 12px;
+        background: rgba(var(--v-theme-on-surface), 0.035);
+        border-inline-end: 1px solid $field-border;
+        border-radius: $radius 0 0 $radius;
+
+        > .v-icon {
+            font-size: 18px;
+            margin: 0;
+        }
+    }
+}

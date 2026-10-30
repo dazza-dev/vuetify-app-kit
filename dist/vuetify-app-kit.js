@@ -153,7 +153,23 @@ function we(n) {
 			VSelect: {
 				variant: "outlined",
 				density: "comfortable",
-				color: "primary"
+				color: "primary",
+				menuIcon: "mdi-chevron-down",
+				menuProps: { offset: 4 }
+			},
+			VAutocomplete: {
+				variant: "outlined",
+				density: "comfortable",
+				color: "primary",
+				menuIcon: "mdi-chevron-down",
+				menuProps: { offset: 4 }
+			},
+			VCombobox: {
+				variant: "outlined",
+				density: "comfortable",
+				color: "primary",
+				menuIcon: "mdi-chevron-down",
+				menuProps: { offset: 4 }
 			},
 			VListItem: { minHeight: "45px" },
 			VTooltip: { location: "top" }
