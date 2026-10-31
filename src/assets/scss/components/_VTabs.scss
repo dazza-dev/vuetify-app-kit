@@ -12,11 +12,52 @@
     }
 }
 
-// Bold label and thicker indicator than vuetify's 500/2px.
-.v-tab.v-btn {
-    font-weight: 600;
-}
+// Muted labels on a hairline, the active one darker with a primary underline over the hairline.
+.v-tabs:not(.theme-tab) {
+    // Drawn inside the box so the active tab's slider covers it.
+    box-shadow: inset 0 -1px 0 rgb(var(--v-theme-borderColor));
 
-.v-tab__slider {
-    height: 3px;
+    // A card header already separates its tabs from the body.
+    .v-card-item & {
+        box-shadow: none;
+    }
+
+    &:not(.v-tabs--grow) .v-slide-group__content {
+        gap: 28px;
+    }
+
+    .v-tab.v-tab {
+        height: auto !important;
+        align-self: stretch;
+        color: rgba(var(--v-theme-on-surface), 0.6) !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        font-weight: 500;
+        letter-spacing: 0;
+        text-transform: none;
+
+        &:hover,
+        &.v-tab--selected {
+            color: rgb(var(--v-theme-on-surface)) !important;
+        }
+
+        &.v-tab--selected {
+            font-weight: 600;
+        }
+
+        .v-btn__overlay,
+        .v-btn__underlay {
+            display: none;
+        }
+    }
+
+    &:not(.v-tabs--grow) .v-tab.v-tab {
+        min-width: 0 !important;
+        padding: 0 2px !important;
+    }
+
+    .v-tab__slider {
+        height: 2px;
+        background: rgb(var(--v-theme-primary));
+    }
 }
