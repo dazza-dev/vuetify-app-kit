@@ -3,14 +3,14 @@ import { createVueI18nAdapter as t } from "vuetify/locale/adapters/vue-i18n";
 import { createI18n as n, useI18n as r } from "vue-i18n";
 import * as i from "vuetify/components";
 import * as a from "vuetify/directives";
-import { Fragment as o, computed as s, createBlock as c, createCommentVNode as l, createElementBlock as u, createElementVNode as d, createSlots as f, createStaticVNode as p, createTextVNode as m, createVNode as h, defineComponent as g, inject as _, mergeProps as v, normalizeClass as y, normalizeStyle as b, openBlock as x, ref as S, renderList as C, renderSlot as w, resolveComponent as T, resolveDynamicComponent as E, shallowRef as ee, toDisplayString as D, unref as O, watch as te, withCtx as k, withModifiers as ne } from "vue";
-import { RouterLink as re, RouterView as ie } from "vue-router";
-import { defineStore as ae } from "pinia";
-import { PerfectScrollbar as oe } from "vue3-perfect-scrollbar";
-import { DotsIcon as se, Menu2Icon as ce, MoonIcon as le, PhotoIcon as ue, SunIcon as de, TrashIcon as fe, UploadIcon as pe } from "vue-tabler-icons";
-import * as me from "@sentry/vue";
+import { Fragment as o, computed as s, createBlock as c, createCommentVNode as l, createElementBlock as u, createElementVNode as d, createSlots as f, createStaticVNode as p, createTextVNode as m, createVNode as h, defineComponent as g, inject as _, mergeProps as v, normalizeClass as y, normalizeStyle as b, openBlock as x, ref as S, renderList as C, renderSlot as w, resolveComponent as T, resolveDirective as ee, resolveDynamicComponent as E, shallowRef as te, toDisplayString as D, unref as O, watch as ne, withCtx as k, withDirectives as re, withModifiers as ie } from "vue";
+import { RouterLink as ae, RouterView as oe } from "vue-router";
+import { defineStore as se } from "pinia";
+import { PerfectScrollbar as ce } from "vue3-perfect-scrollbar";
+import { DotsIcon as le, Menu2Icon as ue, MoonIcon as de, PhotoIcon as fe, SunIcon as pe, TrashIcon as me, UploadIcon as he } from "vue-tabler-icons";
+import * as A from "@sentry/vue";
 //#region src/theme/LightTheme.ts
-var he = {
+var ge = {
 	info: "#539BFF",
 	success: "#13DEB9",
 	accent: "#FFAB91",
@@ -31,17 +31,17 @@ var he = {
 	"on-surface-variant": "#fff",
 	grey100: "#F2F6FA",
 	grey200: "#EAEFF4"
-}, ge = {
+}, _e = {
 	"border-color": "#e5eaef",
 	"border-opacity": 1
 };
-function A(e, t, n, r, i, a) {
+function j(e, t, n, r, i, a) {
 	return {
 		name: e,
 		dark: !1,
-		variables: { ...ge },
+		variables: { ..._e },
 		colors: {
-			...he,
+			...ge,
 			primary: t,
 			secondary: n,
 			sidebarBg: t,
@@ -51,13 +51,13 @@ function A(e, t, n, r, i, a) {
 		}
 	};
 }
-var j = A("BLUE_THEME", "#5D87FF", "#49BEFF", "#ECF2FF", "#E8F7FF"), M = A("AQUA_THEME", "#0074BA", "#47D7BC", "#EFF9FF", "#EDFBF7"), N = A("PURPLE_THEME", "#763EBD", "#95CFD5", "#F2ECF9", "#EDF8FA"), P = A("GREEN_THEME", "#0A7EA4", "#CCDA4E", "#F4F9FB", "#FAFBEF"), F = A("CYAN_THEME", "#01C0C8", "#FB9678", "#EBF9FA", "#FFF5F2", { success: "#00e676" }), I = A("ORANGE_THEME", "#FA896B", "#0074BA", "#FBF2EF", "#EFF9FF", {
+var M = j("BLUE_THEME", "#5D87FF", "#49BEFF", "#ECF2FF", "#E8F7FF"), ve = j("AQUA_THEME", "#0074BA", "#47D7BC", "#EFF9FF", "#EDFBF7"), N = j("PURPLE_THEME", "#763EBD", "#95CFD5", "#F2ECF9", "#EDF8FA"), P = j("GREEN_THEME", "#0A7EA4", "#CCDA4E", "#F4F9FB", "#FAFBEF"), F = j("CYAN_THEME", "#01C0C8", "#FB9678", "#EBF9FA", "#FFF5F2", { success: "#00e676" }), I = j("ORANGE_THEME", "#FA896B", "#0074BA", "#FBF2EF", "#EFF9FF", {
 	success: "#00e676",
 	warning: "#ffe57f"
-}), L = A("EMERALD_THEME", "#00c853", "#00e676", "#E6F9ED", "#E9FBF1", {
+}), L = j("EMERALD_THEME", "#00c853", "#00e676", "#E6F9ED", "#E9FBF1", {
 	sidebarBg: "#12161C",
 	success: "#00e676"
-}), R = A("DEFAULT_THEME", "#562ff4", "#49BEFF", "#EDE8FE", "#E8F7FF"), _e = {
+}), R = j("DEFAULT_THEME", "#562ff4", "#49BEFF", "#EDE8FE", "#E8F7FF"), ye = {
 	info: "#539BFF",
 	success: "#13DEB9",
 	accent: "#FA896B",
@@ -78,7 +78,7 @@ var j = A("BLUE_THEME", "#5D87FF", "#49BEFF", "#ECF2FF", "#E8F7FF"), M = A("AQUA
 	"on-surface-variant": "#171c23",
 	grey100: "#333F55",
 	grey200: "#465670"
-}, ve = {
+}, be = {
 	"border-color": "#333F55",
 	"border-opacity": 1
 };
@@ -86,9 +86,9 @@ function z(e, t, n, r, i, a) {
 	return {
 		name: e,
 		dark: !0,
-		variables: { ...ve },
+		variables: { ...be },
 		colors: {
-			..._e,
+			...ye,
 			primary: t,
 			secondary: n,
 			sidebarBg: t,
@@ -103,13 +103,13 @@ var B = z("DARK_BLUE_THEME", "#5D87FF", "#49BEFF", "#253662", "#1C455D", {
 	background: "#2a3447",
 	surface: "#2a3447",
 	"on-surface-variant": "#2a3447"
-}), V = z("DARK_AQUA_THEME", "#0074BA", "#47D7BC", "#103247", "#0C4339"), H = z("DARK_PURPLE_THEME", "#763EBD", "#95CFD5", "#26153C", "#09454B"), ye = z("DARK_GREEN_THEME", "#0A7EA4", "#CCDA4E", "#05313F", "#282917"), be = z("DARK_CYAN_THEME", "#01C0C8", "#FB9678", "#003638", "#40241C"), xe = z("DARK_ORANGE_THEME", "#FA896B", "#0074BA", "#402E32", "#082E45"), Se = z("DARK_EMERALD_THEME", "#00c853", "#00e676", "#0C4339", "#003638", {
+}), V = z("DARK_AQUA_THEME", "#0074BA", "#47D7BC", "#103247", "#0C4339"), xe = z("DARK_PURPLE_THEME", "#763EBD", "#95CFD5", "#26153C", "#09454B"), Se = z("DARK_GREEN_THEME", "#0A7EA4", "#CCDA4E", "#05313F", "#282917"), Ce = z("DARK_CYAN_THEME", "#01C0C8", "#FB9678", "#003638", "#40241C"), we = z("DARK_ORANGE_THEME", "#FA896B", "#0074BA", "#402E32", "#082E45"), Te = z("DARK_EMERALD_THEME", "#00c853", "#00e676", "#0C4339", "#003638", {
 	sidebarBg: "#0B0E12",
 	success: "#00e676"
-}), Ce = z("DARK_DEFAULT_THEME", "#562ff4", "#49BEFF", "#1C1060", "#1C455D");
+}), Ee = z("DARK_DEFAULT_THEME", "#562ff4", "#49BEFF", "#1C1060", "#1C455D");
 //#endregion
 //#region src/vuetify.ts
-function we(n) {
+function De(n) {
 	return e({
 		components: i,
 		directives: a,
@@ -117,21 +117,21 @@ function we(n) {
 			defaultTheme: "EMERALD_THEME",
 			themes: {
 				DEFAULT_THEME: R,
-				BLUE_THEME: j,
-				AQUA_THEME: M,
+				BLUE_THEME: M,
+				AQUA_THEME: ve,
 				PURPLE_THEME: N,
 				GREEN_THEME: P,
 				CYAN_THEME: F,
 				EMERALD_THEME: L,
 				ORANGE_THEME: I,
-				DARK_DEFAULT_THEME: Ce,
+				DARK_DEFAULT_THEME: Ee,
 				DARK_BLUE_THEME: B,
 				DARK_AQUA_THEME: V,
-				DARK_ORANGE_THEME: xe,
-				DARK_PURPLE_THEME: H,
-				DARK_GREEN_THEME: ye,
-				DARK_CYAN_THEME: be,
-				DARK_EMERALD_THEME: Se
+				DARK_ORANGE_THEME: we,
+				DARK_PURPLE_THEME: xe,
+				DARK_GREEN_THEME: Se,
+				DARK_CYAN_THEME: Ce,
+				DARK_EMERALD_THEME: Te
 			}
 		},
 		locale: { adapter: t({
@@ -178,7 +178,7 @@ function we(n) {
 }
 //#endregion
 //#region src/components/cards/FormCard.vue?vue&type=script&setup=true&lang.ts
-var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__PURE__ */ g({
+var Oe = { class: "d-sm-flex align-center justify-space-between" }, ke = /* @__PURE__ */ g({
 	name: "FormCard",
 	__name: "FormCard",
 	props: {
@@ -191,7 +191,7 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			return x(), c(u, { elevation: "0" }, {
 				default: k(() => [
 					e.title ? (x(), c(a, { key: 0 }, {
-						default: k(() => [d("div", Te, [h(i, { class: "text-h5" }, {
+						default: k(() => [d("div", Oe, [h(i, { class: "text-h5" }, {
 							default: k(() => [w(t.$slots, "title", {}, () => [e.icon ? (x(), c(r, {
 								key: 0,
 								class: "mr-2"
@@ -213,7 +213,7 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			});
 		};
 	}
-}), De = { class: "d-sm-flex align-center justify-space-between" }, Oe = /* @__PURE__ */ g({
+}), Ae = { class: "d-sm-flex align-center justify-space-between" }, je = /* @__PURE__ */ g({
 	name: "ParentCard",
 	__name: "ParentCard",
 	props: { title: {} },
@@ -227,7 +227,7 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 						"pb-4",
 						t.$slots.header ? "pt-6" : "pt-4"
 					]) }, {
-						default: k(() => [d("div", De, [e.title ? (x(), c(r, {
+						default: k(() => [d("div", Ae, [e.title ? (x(), c(r, {
 							key: 0,
 							class: "text-h5"
 						}, {
@@ -249,16 +249,16 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			});
 		};
 	}
-}), ke = { class: "px-8 py-8" }, Ae = { class: "d-flex justify-space-between" }, je = { class: "d-flex py-0 align-center" }, Me = { class: "text-h3 mb-2" }, Ne = { class: "d-flex align-center flex-wrap ga-1 mt-1" }, Pe = {
+}), Me = { class: "px-8 py-8" }, Ne = { class: "d-flex justify-space-between" }, Pe = { class: "d-flex py-0 align-center" }, Fe = { class: "text-h3 mb-2" }, Ie = { class: "d-flex align-center flex-wrap ga-1 mt-1" }, Le = {
 	key: 0,
 	class: "text-subtitle-2 text-medium-emphasis"
-}, Fe = {
+}, Re = {
 	key: 2,
 	class: "text-subtitle-2 text-medium-emphasis"
-}, Ie = {
+}, ze = {
 	key: 0,
 	class: "d-none py-0 d-lg-block overflow-hidden"
-}, Le = /*@__PURE__*/ g({
+}, Be = /*@__PURE__*/ g({
 	name: "BreadcrumbBar",
 	__name: "BreadcrumbBar",
 	props: {
@@ -270,14 +270,14 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 		return (t, n) => {
 			let r = T("v-card");
 			return x(), c(r, { class: "bg-lightprimary elevation-0 rounded-md mb-8" }, {
-				default: k(() => [d("div", ke, [d("div", Ae, [d("div", je, [d("div", null, [d("h3", Me, D(e.title), 1), d("nav", Ne, [(x(!0), u(o, null, C(e.breadcrumbs, (e, t) => (x(), u(o, { key: t }, [t > 0 ? (x(), u("span", Pe, "•")) : l("", !0), e.href && !e.disabled ? (x(), c(O(re), {
+				default: k(() => [d("div", Me, [d("div", Ne, [d("div", Pe, [d("div", null, [d("h3", Fe, D(e.title), 1), d("nav", Ie, [(x(!0), u(o, null, C(e.breadcrumbs, (e, t) => (x(), u(o, { key: t }, [t > 0 ? (x(), u("span", Le, "•")) : l("", !0), e.href && !e.disabled ? (x(), c(O(ae), {
 					key: 1,
 					to: e.href,
 					class: "text-subtitle-2 text-decoration-none text-textPrimary"
 				}, {
 					default: k(() => [m(D(e.title), 1)]),
 					_: 2
-				}, 1032, ["to"])) : (x(), u("span", Fe, D(e.title), 1))], 64))), 128))])])]), e.image ? (x(), u("div", Ie, [d("div", {
+				}, 1032, ["to"])) : (x(), u("span", Re, D(e.title), 1))], 64))), 128))])])]), e.image ? (x(), u("div", ze, [d("div", {
 					class: "breadcrumb-image",
 					style: b({ backgroundImage: `url(${e.image})` })
 				}, null, 4)])) : l("", !0)])])]),
@@ -285,27 +285,46 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			});
 		};
 	}
-}), U = (e, t) => {
+}), H = (e, t) => {
 	let n = e.__vccOpts || e;
 	for (let [e, r] of t) n[e] = r;
 	return n;
-}, Re = /*#__PURE__*/ U(Le, [["__scopeId", "data-v-77f25f99"]]), ze = { class: "d-flex align-start justify-space-between mb-6" }, Be = { class: "text-h2 font-weight-bold text-black" }, Ve = {
+}, Ve = /*#__PURE__*/ H(Be, [["__scopeId", "data-v-77f25f99"]]), He = { class: "d-flex align-start justify-space-between mb-6" }, Ue = {
+	class: "d-flex align-start ga-2",
+	style: { "min-width": "0" }
+}, We = { style: { "min-width": "0" } }, Ge = { class: "text-h2 font-weight-bold text-black" }, Ke = {
 	key: 0,
 	class: "text-body-1 text-medium-emphasis mt-1"
-}, He = {
+}, qe = {
 	key: 0,
 	class: "page-header-actions d-flex ga-2 align-center flex-shrink-0 ml-4"
-}, Ue = /* @__PURE__ */ g({
+}, Je = /* @__PURE__ */ g({
 	name: "PageHeader",
 	__name: "PageHeader",
 	props: {
 		title: {},
-		subtitle: {}
+		subtitle: {},
+		back: {},
+		backLabel: {}
 	},
 	setup(e) {
-		return (t, n) => (x(), u("div", ze, [d("div", null, [d("h2", Be, D(e.title), 1), e.subtitle ? (x(), u("p", Ve, D(e.subtitle), 1)) : l("", !0)]), t.$slots.actions ? (x(), u("div", He, [w(t.$slots, "actions")])) : l("", !0)]));
+		return (t, n) => {
+			let r = T("v-btn"), i = ee("tooltip");
+			return x(), u("div", He, [d("div", Ue, [e.back ? re((x(), c(r, {
+				key: 0,
+				to: e.back,
+				"aria-label": e.backLabel,
+				icon: "mdi-arrow-left",
+				variant: "flat",
+				class: "mt-1 flex-shrink-0"
+			}, null, 8, ["to", "aria-label"])), [[
+				i,
+				e.backLabel,
+				"top"
+			]]) : l("", !0), d("div", We, [d("h2", Ge, D(e.title), 1), e.subtitle ? (x(), u("p", Ke, D(e.subtitle), 1)) : l("", !0)])]), t.$slots.actions ? (x(), u("div", qe, [w(t.$slots, "actions")])) : l("", !0)]);
+		};
 	}
-}), We = { class: "text-caption text-truncate" }, Ge = /* @__PURE__ */ g({
+}), Ye = { class: "text-caption text-truncate" }, Xe = /* @__PURE__ */ g({
 	name: "PillTabs",
 	__name: "PillTabs",
 	props: {
@@ -350,7 +369,7 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 							default: k(() => [(x(), c(E(t.icon), {
 								class: "mr-1",
 								size: "16"
-							})), d("span", We, D(e.showNumbers ? `${r + 1}.` : "") + " " + D(t.text), 1)]),
+							})), d("span", Ye, D(e.showNumbers ? `${r + 1}.` : "") + " " + D(t.text), 1)]),
 							_: 2
 						}, 1032, [
 							"value",
@@ -365,7 +384,7 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			}), w(t.$slots, "default")]);
 		};
 	}
-}), Ke = /* @__PURE__ */ g({
+}), Ze = /* @__PURE__ */ g({
 	name: "TagChip",
 	__name: "TagChip",
 	props: {
@@ -392,13 +411,13 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			}, 8, ["class", "size"]);
 		};
 	}
-}), qe = { class: "d-flex gap-3 mb-5" }, Je = {
+}), Qe = { class: "d-flex gap-3 mb-5" }, $e = {
 	key: 0,
 	class: "text-h6"
-}, Ye = {
+}, et = {
 	key: 1,
 	class: "text-subtitle-1"
-}, Xe = /* @__PURE__ */ g({
+}, tt = /* @__PURE__ */ g({
 	name: "TextItem",
 	__name: "TextItem",
 	props: {
@@ -409,17 +428,17 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 	setup(e) {
 		return (t, n) => {
 			let r = T("v-icon");
-			return x(), u("div", qe, [
+			return x(), u("div", Qe, [
 				w(t.$slots, "icon", {}, () => [e.icon ? (x(), c(r, { key: 0 }, {
 					default: k(() => [m(D(e.icon), 1)]),
 					_: 1
 				})) : l("", !0)]),
-				e.title ? (x(), u("span", Je, D(e.title), 1)) : l("", !0),
-				e.value || t.$slots.value ? (x(), u("span", Ye, [w(t.$slots, "value", {}, () => [m(D(e.value), 1)])])) : l("", !0)
+				e.title ? (x(), u("span", $e, D(e.title), 1)) : l("", !0),
+				e.value || t.$slots.value ? (x(), u("span", et, [w(t.$slots, "value", {}, () => [m(D(e.value), 1)])])) : l("", !0)
 			]);
 		};
 	}
-}), Ze = /* @__PURE__ */ g({
+}), nt = /* @__PURE__ */ g({
 	name: "ConfirmationModal",
 	__name: "ConfirmationModal",
 	props: {
@@ -482,40 +501,40 @@ var Te = { class: "d-sm-flex align-center justify-space-between" }, Ee = /* @__P
 			}, 8, ["modelValue"]);
 		};
 	}
-}), W = {};
-function Qe() {
-	return W;
+}), U = {};
+function rt() {
+	return U;
 }
-var $e = { install(e, t = {}) {
-	W = t, e.component("ParentCard", Oe), e.component("FormCard", Ee), e.component("BreadcrumbBar", Re), e.component("PageHeader", Ue), e.component("TagChip", Ke), e.component("ConfirmationModal", Ze), e.component("PillTabs", Ge), e.component("TextItem", Xe);
+var it = { install(e, t = {}) {
+	U = t, e.component("ParentCard", je), e.component("FormCard", ke), e.component("BreadcrumbBar", Ve), e.component("PageHeader", Je), e.component("TagChip", Ze), e.component("ConfirmationModal", nt), e.component("PillTabs", Xe), e.component("TextItem", tt);
 } };
 //#endregion
 //#region src/utils/common.ts
-function et(e) {
+function at(e) {
 	return e.split(" ").map((e) => e.charAt(0)).join("").toUpperCase();
 }
-function tt() {
+function ot() {
 	let e = window.location.hostname.split(".");
 	return e.length >= 2 ? e[0] : null;
 }
-function nt() {
+function st() {
 	let e = window.location.pathname.split("/").filter(Boolean);
 	if (e.length === 0) return null;
 	let t = e[0];
 	return t.includes(".") || t.startsWith("_") ? null : t;
 }
-function G(e) {
-	let t = nt();
+function W(e) {
+	let t = st();
 	return t ? `${t}:${e}` : e;
 }
 //#endregion
 //#region src/stores/customizer.ts
-var rt = () => G("darkMode"), it = () => G("miniSidebar");
-function at(e, t) {
+var ct = () => W("darkMode"), lt = () => W("miniSidebar");
+function ut(e, t) {
 	let n = localStorage.getItem(e);
 	return n === null ? t : n === "true";
 }
-var K = {
+var G = {
 	sidebarDrawer: !0,
 	customizerDrawer: !1,
 	miniSidebar: !1,
@@ -523,16 +542,16 @@ var K = {
 	darkMode: !1,
 	boxed: !0,
 	borderCard: !1
-}, q = {};
-function ot(e) {
-	q = e;
+}, K = {};
+function dt(e) {
+	K = e;
 }
-var J = ae("customizer", {
+var q = se("customizer", {
 	state: () => ({
+		...G,
 		...K,
-		...q,
-		miniSidebar: at(it(), q.miniSidebar ?? K.miniSidebar),
-		darkMode: at(rt(), q.darkMode ?? K.darkMode)
+		miniSidebar: ut(lt(), K.miniSidebar ?? G.miniSidebar),
+		darkMode: ut(ct(), K.darkMode ?? G.darkMode)
 	}),
 	getters: { theme(e) {
 		let t = e.activeTheme.replace(/^DARK_/, "");
@@ -543,7 +562,7 @@ var J = ae("customizer", {
 			this.sidebarDrawer = !this.sidebarDrawer;
 		},
 		setMiniSidebar(e) {
-			this.miniSidebar = e, localStorage.setItem(it(), String(e));
+			this.miniSidebar = e, localStorage.setItem(lt(), String(e));
 		},
 		setCustomizerDrawer(e) {
 			this.customizerDrawer = e;
@@ -555,10 +574,10 @@ var J = ae("customizer", {
 			this.borderCard = e;
 		},
 		toggleDarkMode() {
-			this.darkMode = !this.darkMode, localStorage.setItem(rt(), String(this.darkMode));
+			this.darkMode = !this.darkMode, localStorage.setItem(ct(), String(this.darkMode));
 		}
 	}
-}), st = Symbol("LogoComponent"), ct = Symbol("HeaderLeftWidgets"), lt = Symbol("HeaderRightWidgets"), ut = Symbol("SidebarItems"), dt = Symbol("LogoLink"), ft = { class: "mini-icon" }, pt = { class: "mini-text" }, mt = /* @__PURE__ */ g({
+}), ft = Symbol("LogoComponent"), pt = Symbol("HeaderLeftWidgets"), mt = Symbol("HeaderRightWidgets"), ht = Symbol("SidebarItems"), gt = Symbol("LogoLink"), _t = { class: "mini-icon" }, vt = { class: "mini-text" }, yt = /* @__PURE__ */ g({
 	name: "NavGroup",
 	__name: "NavGroup",
 	props: { item: {} },
@@ -566,16 +585,16 @@ var J = ae("customizer", {
 		return (t, n) => {
 			let r = T("v-list-subheader");
 			return x(), c(r, { class: "smallCap text-uppercase text-subtitle-2 mt-5 font-weight-bold d-flex align-items-center" }, {
-				default: k(() => [d("span", ft, [h(O(se), {
+				default: k(() => [d("span", _t, [h(O(le), {
 					size: "16",
 					"stroke-width": "1.5",
 					class: "iconClass"
-				})]), d("span", pt, D(e.item.header), 1)]),
+				})]), d("span", vt, D(e.item.header), 1)]),
 				_: 1
 			});
 		};
 	}
-}), ht = /* @__PURE__ */ g({
+}), bt = /* @__PURE__ */ g({
 	name: "SidebarIcon",
 	__name: "Icon",
 	props: {
@@ -589,7 +608,7 @@ var J = ae("customizer", {
 			class: "iconClass"
 		}, null, 8, ["size"]));
 	}
-}), gt = /* @__PURE__ */ g({
+}), xt = /* @__PURE__ */ g({
 	name: "NavItem",
 	__name: "NavItem",
 	props: {
@@ -607,7 +626,7 @@ var J = ae("customizer", {
 				disabled: e.item.disabled,
 				target: e.item.type === "external" ? "_blank" : ""
 			}, f({
-				prepend: k(() => [h(ht, {
+				prepend: k(() => [h(bt, {
 					item: e.item.icon,
 					level: e.level
 				}, null, 8, ["item", "level"])]),
@@ -648,7 +667,7 @@ var J = ae("customizer", {
 			]);
 		};
 	}
-}), _t = /* @__PURE__ */ g({
+}), St = /* @__PURE__ */ g({
 	name: "NavCollapse",
 	__name: "NavCollapse",
 	props: {
@@ -664,7 +683,7 @@ var J = ae("customizer", {
 					rounded: "",
 					class: "mb-1"
 				}), {
-					prepend: k(() => [h(ht, {
+					prepend: k(() => [h(bt, {
 						item: e.item.icon,
 						level: e.level
 					}, null, 8, ["item", "level"])]),
@@ -684,7 +703,7 @@ var J = ae("customizer", {
 					key: 0,
 					item: t,
 					level: e.level + 1
-				}, null, 8, ["item", "level"])) : (x(), c(gt, {
+				}, null, 8, ["item", "level"])) : (x(), c(xt, {
 					key: 1,
 					item: t,
 					level: e.level + 1
@@ -693,11 +712,11 @@ var J = ae("customizer", {
 			});
 		};
 	}
-}), vt = /* @__PURE__ */ g({
+}), Ct = /* @__PURE__ */ g({
 	name: "AppSidebar",
 	__name: "Sidebar",
 	setup(e) {
-		let t = _(st), n = _(dt, void 0), r = _(ut, ee([])), i = J();
+		let t = _(ft), n = _(gt, void 0), r = _(ht, te([])), i = q();
 		return (e, a) => {
 			let s = T("v-list"), d = T("v-navigation-drawer");
 			return x(), c(d, {
@@ -712,23 +731,23 @@ var J = ae("customizer", {
 				"expand-on-hover": "",
 				width: "270"
 			}, {
-				default: k(() => [(x(), c(E(O(n) ? O(re) : "div"), {
+				default: k(() => [(x(), c(E(O(n) ? O(ae) : "div"), {
 					to: O(n),
 					class: "sidebar-logo pa-2"
 				}, {
 					default: k(() => [O(t) ? (x(), c(E(O(t)), { key: 0 })) : l("", !0)]),
 					_: 1
-				}, 8, ["to"])), h(O(oe), { class: "scrollnavbar" }, {
+				}, 8, ["to"])), h(O(ce), { class: "scrollnavbar" }, {
 					default: k(() => [h(s, { class: "pa-6" }, {
-						default: k(() => [(x(!0), u(o, null, C(O(r), (e) => (x(), u(o, { key: e.title }, [e.header ? (x(), c(mt, {
+						default: k(() => [(x(!0), u(o, null, C(O(r), (e) => (x(), u(o, { key: e.title }, [e.header ? (x(), c(yt, {
 							key: 0,
 							item: e
-						}, null, 8, ["item"])) : e.children ? (x(), c(_t, {
+						}, null, 8, ["item"])) : e.children ? (x(), c(St, {
 							key: 1,
 							class: "leftPadding",
 							item: e,
 							level: 0
-						}, null, 8, ["item"])) : (x(), c(gt, {
+						}, null, 8, ["item"])) : (x(), c(xt, {
 							key: 2,
 							item: e,
 							class: "leftPadding"
@@ -741,11 +760,11 @@ var J = ae("customizer", {
 			}, 8, ["modelValue", "rail"]);
 		};
 	}
-}), yt = /* @__PURE__ */ g({
+}), wt = /* @__PURE__ */ g({
 	name: "AppHeader",
 	__name: "Header",
 	setup(e) {
-		let t = J(), n = _(ct, []), r = _(lt, []);
+		let t = q(), n = _(pt, []), r = _(mt, []);
 		return (e, i) => {
 			let a = T("v-btn"), s = T("v-spacer"), l = T("v-app-bar");
 			return x(), c(l, {
@@ -758,9 +777,9 @@ var J = ae("customizer", {
 						icon: "",
 						color: "primary",
 						variant: "text",
-						onClick: i[0] ||= ne((e) => O(t).setMiniSidebar(!O(t).miniSidebar), ["stop"])
+						onClick: i[0] ||= ie((e) => O(t).setMiniSidebar(!O(t).miniSidebar), ["stop"])
 					}, {
-						default: k(() => [h(O(ce), {
+						default: k(() => [h(O(ue), {
 							size: "20",
 							"stroke-width": "1.5"
 						})]),
@@ -770,10 +789,10 @@ var J = ae("customizer", {
 						class: "hidden-lg-and-up",
 						icon: "",
 						variant: "flat",
-						onClick: ne(O(t).toggleSidebarDrawer, ["stop"]),
+						onClick: ie(O(t).toggleSidebarDrawer, ["stop"]),
 						size: "small"
 					}, {
-						default: k(() => [h(O(ce), {
+						default: k(() => [h(O(ue), {
 							size: "20",
 							"stroke-width": "1.5"
 						})]),
@@ -787,11 +806,11 @@ var J = ae("customizer", {
 			});
 		};
 	}
-}), bt = /* @__PURE__ */ g({
+}), Tt = /* @__PURE__ */ g({
 	name: "FullLayout",
 	__name: "FullLayout",
 	setup(e) {
-		let t = J();
+		let t = q();
 		return (e, n) => {
 			let r = T("v-container"), i = T("v-main"), a = T("v-app"), o = T("v-locale-provider");
 			return x(), c(o, null, {
@@ -805,14 +824,14 @@ var J = ae("customizer", {
 					])
 				}, {
 					default: k(() => [
-						h(vt),
-						h(yt),
+						h(Ct),
+						h(wt),
 						h(i, null, {
 							default: k(() => [h(r, {
 								fluid: "",
 								class: "page-wrapper pb-sm-15 pb-10"
 							}, {
-								default: k(() => [d("div", { class: y(O(t).boxed ? "max-width" : "") }, [h(O(ie))], 2)]),
+								default: k(() => [d("div", { class: y(O(t).boxed ? "max-width" : "") }, [h(O(oe))], 2)]),
 								_: 1
 							})]),
 							_: 1
@@ -824,49 +843,49 @@ var J = ae("customizer", {
 			});
 		};
 	}
-}), xt = /* @__PURE__ */ g({
+}), Et = /* @__PURE__ */ g({
 	name: "BlankLayout",
 	__name: "BlankLayout",
 	setup(e) {
-		let t = J();
+		let t = q();
 		return (e, n) => {
 			let r = T("v-app");
 			return x(), c(r, {
 				theme: O(t).theme,
 				class: y(O(t).theme)
 			}, {
-				default: k(() => [h(O(ie))]),
+				default: k(() => [h(O(oe))]),
 				_: 1
 			}, 8, ["theme", "class"]);
 		};
 	}
-}), St = {
+}), Dt = {
 	viewBox: "0 0 520 244",
 	fill: "none",
 	xmlns: "http://www.w3.org/2000/svg",
 	"aria-hidden": "true",
 	focusable: "false"
-}, Ct = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, Ot = /*#__PURE__*/ H(/* @__PURE__ */ g({
 	name: "NotFoundArt",
 	__name: "NotFoundArt",
 	setup(e) {
-		return (e, t) => (x(), u("svg", St, [...t[0] ||= [p("<g stroke=\"currentColor\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-v-ac3e2cd5><path d=\"M118 40 L30 152 H150\" data-v-ac3e2cd5></path><path d=\"M118 40 V200\" data-v-ac3e2cd5></path><path d=\"M458 40 L370 152 H490\" data-v-ac3e2cd5></path><path d=\"M458 40 V200\" data-v-ac3e2cd5></path></g><g stroke=\"currentColor\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-v-ac3e2cd5><path d=\"M260 40 A62 80 0 0 0 260 200\" transform=\"rotate(-3 260 120) translate(-9,2)\" data-v-ac3e2cd5></path><path d=\"M260 40 A62 80 0 0 1 260 200\" transform=\"rotate(3 260 120) translate(9,-2)\" data-v-ac3e2cd5></path></g><path d=\"M261 36 L246 76 L274 104 L242 134 L268 166 L252 204\" stroke=\"currentColor\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\" data-v-ac3e2cd5></path><g fill=\"currentColor\" data-v-ac3e2cd5><path d=\"M238 216 l15 -6 -3 15 z\" opacity=\"0.38\" data-v-ac3e2cd5></path><path d=\"M274 224 l12 -8 3 13 z\" opacity=\"0.24\" data-v-ac3e2cd5></path></g>", 4)]]));
+		return (e, t) => (x(), u("svg", Dt, [...t[0] ||= [p("<g stroke=\"currentColor\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-v-ac3e2cd5><path d=\"M118 40 L30 152 H150\" data-v-ac3e2cd5></path><path d=\"M118 40 V200\" data-v-ac3e2cd5></path><path d=\"M458 40 L370 152 H490\" data-v-ac3e2cd5></path><path d=\"M458 40 V200\" data-v-ac3e2cd5></path></g><g stroke=\"currentColor\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-v-ac3e2cd5><path d=\"M260 40 A62 80 0 0 0 260 200\" transform=\"rotate(-3 260 120) translate(-9,2)\" data-v-ac3e2cd5></path><path d=\"M260 40 A62 80 0 0 1 260 200\" transform=\"rotate(3 260 120) translate(9,-2)\" data-v-ac3e2cd5></path></g><path d=\"M261 36 L246 76 L274 104 L242 134 L268 166 L252 204\" stroke=\"currentColor\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.5\" data-v-ac3e2cd5></path><g fill=\"currentColor\" data-v-ac3e2cd5><path d=\"M238 216 l15 -6 -3 15 z\" opacity=\"0.38\" data-v-ac3e2cd5></path><path d=\"M274 224 l12 -8 3 13 z\" opacity=\"0.24\" data-v-ac3e2cd5></path></g>", 4)]]));
 	}
-}), [["__scopeId", "data-v-ac3e2cd5"]]), wt = { class: "d-flex flex-column align-center justify-center text-center h-100vh px-4" }, Tt = { class: "not-found-art text-primary" }, Et = { class: "text-h4 font-weight-bold mt-10" }, Dt = { class: "text-body-1 text-medium-emphasis mt-3 not-found-text" }, Ot = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}), [["__scopeId", "data-v-ac3e2cd5"]]), kt = { class: "d-flex flex-column align-center justify-center text-center h-100vh px-4" }, At = { class: "not-found-art text-primary" }, jt = { class: "text-h4 font-weight-bold mt-10" }, Mt = { class: "text-body-1 text-medium-emphasis mt-3 not-found-text" }, Nt = /*#__PURE__*/ H(/* @__PURE__ */ g({
 	name: "ErrorPage",
 	__name: "ErrorPage",
 	setup(e) {
-		let { t, te: n } = r({ useScope: "global" }), i = Qe().errorPage ?? {};
+		let { t, te: n } = r({ useScope: "global" }), i = rt().errorPage ?? {};
 		function a(e, r) {
 			return e && n(e) ? t(e) : r;
 		}
 		let o = s(() => a(i.titleKey, "Oops!")), c = s(() => a(i.descriptionKey, "The page you are looking for could not be found.")), l = s(() => a(i.backToHomeKey, "Go Back to Home")), f = s(() => i.homeRoute ?? "/");
 		return (e, t) => {
 			let n = T("v-btn");
-			return x(), u("div", wt, [
-				d("div", Tt, [h(Ct)]),
-				d("h1", Et, D(o.value), 1),
-				d("p", Dt, D(c.value), 1),
+			return x(), u("div", kt, [
+				d("div", At, [h(Ot)]),
+				d("h1", jt, D(o.value), 1),
+				d("p", Mt, D(c.value), 1),
 				h(n, {
 					flat: "",
 					color: "primary",
@@ -879,35 +898,35 @@ var J = ae("customizer", {
 			]);
 		};
 	}
-}), [["__scopeId", "data-v-75c71571"]]), kt = () => G("lang"), Y;
-function X(e) {
-	Y && (Y.global.locale.value = e, document.documentElement.lang = e);
+}), [["__scopeId", "data-v-75c71571"]]), Pt = () => W("lang"), J;
+function Y(e) {
+	J && (J.global.locale.value = e, document.documentElement.lang = e);
 }
-function At(e) {
-	X(e), localStorage.setItem(kt(), e);
+function Ft(e) {
+	Y(e), localStorage.setItem(Pt(), e);
 }
-function Z() {
-	return localStorage.getItem(kt());
+function X() {
+	return localStorage.getItem(Pt());
 }
-function jt(e) {
-	!e || Z() || X(e);
+function It(e) {
+	!e || X() || Y(e);
 }
-function Mt(e) {
-	if (!Y) {
-		let t = Z() ?? e.defaultLocale ?? "en";
-		Y = n({
+function Lt(e) {
+	if (!J) {
+		let t = X() ?? e.defaultLocale ?? "en";
+		J = n({
 			globalInjection: !0,
 			legacy: !1,
 			locale: t,
 			fallbackLocale: e.fallbackLocale || e.defaultLocale || "en",
 			messages: e.messages
-		}), X(t);
+		}), Y(t);
 	}
-	return Y;
+	return J;
 }
 //#endregion
 //#region src/assets/images/flag/icon-flag-en.svg
-var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20width='28'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3crect%20id='a'%20height='20'%20rx='3'%20width='28'/%3e%3cmask%20id='b'%20fill='%23fff'%3e%3cuse%20fill='%23fff'%20fill-rule='evenodd'%20xlink:href='%23a'/%3e%3c/mask%3e%3c/defs%3e%3cg%20fill='none'%20fill-rule='evenodd'%3e%3cuse%20fill='%230a17a7'%20xlink:href='%23a'/%3e%3cpath%20d='m29.2824692-1.91644623%201.4911811%202.21076686-9.4483006%206.37223314%206.6746503.0001129v6.66666663l-6.6746503-.0007795%209.4483006%206.3731256-1.4911811%202.2107668-11.9501195-8.0608924.0009836%207.4777795h-6.6666666l-.000317-7.4777795-11.9488189%208.0608924-1.49118107-2.2107668%209.448-6.3731256-6.67434973.0007795v-6.66666663l6.67434973-.0001129-9.448-6.37223314%201.49118107-2.21076686%2011.9488189%208.06.000317-7.4768871h6.6666666l-.0009836%207.4768871z'%20fill='%23fff'%20mask='url(%23b)'/%3e%3cg%20stroke='%23db1f35'%20stroke-linecap='round'%20stroke-width='.667'%3e%3cpath%20d='m18.668%206.332%2012.665-8.332'%20mask='url(%23b)'/%3e%3cpath%20d='m20.013%2021.35%2011.354-7.652'%20mask='url(%23b)'%20transform='matrix(1%200%200%20-1%200%2035.048)'/%3e%3cpath%20d='m8.006%206.31-11.843-7.981'%20mask='url(%23b)'/%3e%3cpath%20d='m9.29%2022.31-13.127-8.705'%20mask='url(%23b)'%20transform='matrix(1%200%200%20-1%200%2035.915)'/%3e%3c/g%3e%3cpath%20d='m0%2012h12v8h4v-8h12v-4h-12v-8h-4v8h-12z'%20fill='%23e6273e'%20mask='url(%23b)'/%3e%3c/g%3e%3c/svg%3e", Pt = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='512'%20height='512'%20fill='%23AA151B'/%3e%3crect%20y='128'%20width='512'%20height='256'%20fill='%23F1BF00'/%3e%3cpath%20d='M144,256%20C144,211.82%20179.82,176%20224,176%20C268.18,176%20304,211.82%20304,256%20C304,300.18%20268.18,336%20224,336%20C179.82,336%20144,300.18%20144,256%20Z'%20fill='%23AA151B'/%3e%3cpath%20d='M160,256%20C160,220.65%20188.65,192%20224,192%20C259.35,192%20288,220.65%20288,256'%20fill='%23F1BF00'/%3e%3crect%20x='176'%20y='224'%20width='96'%20height='16'%20fill='%23AA151B'/%3e%3crect%20x='176'%20y='256'%20width='96'%20height='16'%20fill='%23AA151B'/%3e%3c/svg%3e", Ft = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='512'%20height='512'%20fill='%23006600'/%3e%3crect%20width='204.8'%20height='512'%20fill='%23FF0000'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='76.8'%20fill='%23FFCC00'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='70.4'%20fill='%23FFFFFF'/%3e%3cpath%20d='M%20134.4%20256%20A%2070.4%2070.4%200%200%201%20204.8%20185.6%20A%2070.4%2070.4%200%200%201%20275.2%20256%20A%2070.4%2070.4%200%200%201%20204.8%20326.4%20A%2070.4%2070.4%200%200%201%20134.4%20256%20Z'%20fill='%23FF0000'/%3e%3cpath%20d='M%20153.6%20230.4%20L%20256%20230.4%20L%20256%20281.6%20L%20153.6%20281.6%20Z'%20fill='%230000CC'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='12.8'%20fill='%23FFCC00'/%3e%3c/svg%3e", It = ["src", "alt"], Lt = ["src", "alt"], Rt = ["src", "alt"], zt = ["src", "alt"], Bt = { class: "text-disabled text-subtitle-1 pl-2" }, Vt = /* @__PURE__ */ g({
+var Rt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20width='28'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3crect%20id='a'%20height='20'%20rx='3'%20width='28'/%3e%3cmask%20id='b'%20fill='%23fff'%3e%3cuse%20fill='%23fff'%20fill-rule='evenodd'%20xlink:href='%23a'/%3e%3c/mask%3e%3c/defs%3e%3cg%20fill='none'%20fill-rule='evenodd'%3e%3cuse%20fill='%230a17a7'%20xlink:href='%23a'/%3e%3cpath%20d='m29.2824692-1.91644623%201.4911811%202.21076686-9.4483006%206.37223314%206.6746503.0001129v6.66666663l-6.6746503-.0007795%209.4483006%206.3731256-1.4911811%202.2107668-11.9501195-8.0608924.0009836%207.4777795h-6.6666666l-.000317-7.4777795-11.9488189%208.0608924-1.49118107-2.2107668%209.448-6.3731256-6.67434973.0007795v-6.66666663l6.67434973-.0001129-9.448-6.37223314%201.49118107-2.21076686%2011.9488189%208.06.000317-7.4768871h6.6666666l-.0009836%207.4768871z'%20fill='%23fff'%20mask='url(%23b)'/%3e%3cg%20stroke='%23db1f35'%20stroke-linecap='round'%20stroke-width='.667'%3e%3cpath%20d='m18.668%206.332%2012.665-8.332'%20mask='url(%23b)'/%3e%3cpath%20d='m20.013%2021.35%2011.354-7.652'%20mask='url(%23b)'%20transform='matrix(1%200%200%20-1%200%2035.048)'/%3e%3cpath%20d='m8.006%206.31-11.843-7.981'%20mask='url(%23b)'/%3e%3cpath%20d='m9.29%2022.31-13.127-8.705'%20mask='url(%23b)'%20transform='matrix(1%200%200%20-1%200%2035.915)'/%3e%3c/g%3e%3cpath%20d='m0%2012h12v8h4v-8h12v-4h-12v-8h-4v8h-12z'%20fill='%23e6273e'%20mask='url(%23b)'/%3e%3c/g%3e%3c/svg%3e", zt = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='512'%20height='512'%20fill='%23AA151B'/%3e%3crect%20y='128'%20width='512'%20height='256'%20fill='%23F1BF00'/%3e%3cpath%20d='M144,256%20C144,211.82%20179.82,176%20224,176%20C268.18,176%20304,211.82%20304,256%20C304,300.18%20268.18,336%20224,336%20C179.82,336%20144,300.18%20144,256%20Z'%20fill='%23AA151B'/%3e%3cpath%20d='M160,256%20C160,220.65%20188.65,192%20224,192%20C259.35,192%20288,220.65%20288,256'%20fill='%23F1BF00'/%3e%3crect%20x='176'%20y='224'%20width='96'%20height='16'%20fill='%23AA151B'/%3e%3crect%20x='176'%20y='256'%20width='96'%20height='16'%20fill='%23AA151B'/%3e%3c/svg%3e", Bt = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='512'%20height='512'%20fill='%23006600'/%3e%3crect%20width='204.8'%20height='512'%20fill='%23FF0000'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='76.8'%20fill='%23FFCC00'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='70.4'%20fill='%23FFFFFF'/%3e%3cpath%20d='M%20134.4%20256%20A%2070.4%2070.4%200%200%201%20204.8%20185.6%20A%2070.4%2070.4%200%200%201%20275.2%20256%20A%2070.4%2070.4%200%200%201%20204.8%20326.4%20A%2070.4%2070.4%200%200%201%20134.4%20256%20Z'%20fill='%23FF0000'/%3e%3cpath%20d='M%20153.6%20230.4%20L%20256%20230.4%20L%20256%20281.6%20L%20153.6%20281.6%20Z'%20fill='%230000CC'/%3e%3ccircle%20cx='204.8'%20cy='256'%20r='12.8'%20fill='%23FFCC00'/%3e%3c/svg%3e", Vt = ["src", "alt"], Ht = ["src", "alt"], Ut = ["src", "alt"], Wt = ["src", "alt"], Gt = { class: "text-disabled text-subtitle-1 pl-2" }, Kt = /* @__PURE__ */ g({
 	name: "LanguagesMenu",
 	__name: "LanguagesMenu",
 	setup(e) {
@@ -916,23 +935,23 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 				title: "English",
 				subtext: "US",
 				value: "en",
-				avatar: Nt
+				avatar: Rt
 			},
 			{
 				title: "Español",
 				subtext: "ES",
 				value: "es",
-				avatar: Pt
+				avatar: zt
 			},
 			{
 				title: "Português",
 				subtext: "PT",
 				value: "pt",
-				avatar: Ft
+				avatar: Bt
 			}
 		], { locale: n } = r({ useScope: "global" });
 		function i(e) {
-			n.value = e, At(e);
+			n.value = e, Ft(e);
 		}
 		return (e, r) => {
 			let a = T("v-avatar"), s = T("v-btn"), f = T("v-list-item-title"), p = T("v-list-item"), g = T("v-list"), _ = T("v-sheet"), y = T("v-menu");
@@ -949,28 +968,28 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 						default: k(() => [
 							O(n) === "en" ? (x(), u("img", {
 								key: 0,
-								src: O(Nt),
+								src: O(Rt),
 								alt: O(n),
 								width: "22",
 								height: "22",
 								class: "obj-cover"
-							}, null, 8, It)) : l("", !0),
+							}, null, 8, Vt)) : l("", !0),
 							O(n) === "es" ? (x(), u("img", {
 								key: 1,
-								src: O(Pt),
+								src: O(zt),
 								alt: O(n),
 								width: "22",
 								height: "22",
 								class: "obj-cover"
-							}, null, 8, Lt)) : l("", !0),
+							}, null, 8, Ht)) : l("", !0),
 							O(n) === "pt" ? (x(), u("img", {
 								key: 2,
-								src: O(Ft),
+								src: O(Bt),
 								alt: O(n),
 								width: "22",
 								height: "22",
 								class: "obj-cover"
-							}, null, 8, Rt)) : l("", !0)
+							}, null, 8, Ut)) : l("", !0)
 						]),
 						_: 1
 					})]),
@@ -996,11 +1015,11 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 									width: "22",
 									height: "22",
 									class: "obj-cover"
-								}, null, 8, zt)]),
+								}, null, 8, Wt)]),
 								_: 2
 							}, 1024)]),
 							default: k(() => [h(f, { class: "text-subtitle-1 font-weight-regular" }, {
-								default: k(() => [m(D(e.title) + " ", 1), d("span", Bt, "(" + D(e.subtext) + ")", 1)]),
+								default: k(() => [m(D(e.title) + " ", 1), d("span", Gt, "(" + D(e.subtext) + ")", 1)]),
 								_: 2
 							}, 1024)]),
 							_: 2
@@ -1013,11 +1032,11 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			});
 		};
 	}
-}), Ht = /* @__PURE__ */ g({
+}), qt = /* @__PURE__ */ g({
 	name: "ModeToggle",
 	__name: "ModeToggle",
 	setup(e) {
-		let { t } = r(), n = J(), i = s(() => t(n.darkMode ? "common.mode.light" : "common.mode.dark"));
+		let { t } = r(), n = q(), i = s(() => t(n.darkMode ? "common.mode.light" : "common.mode.dark"));
 		return (e, t) => {
 			let r = T("v-tooltip"), a = T("v-btn");
 			return x(), c(a, {
@@ -1032,11 +1051,11 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 				}, {
 					default: k(() => [m(D(i.value), 1)]),
 					_: 1
-				}), O(n).darkMode ? (x(), c(O(de), {
+				}), O(n).darkMode ? (x(), c(O(pe), {
 					key: 1,
 					size: "20",
 					"stroke-width": "1.5"
-				})) : (x(), c(O(le), {
+				})) : (x(), c(O(de), {
 					key: 0,
 					size: "20",
 					"stroke-width": "1.5"
@@ -1045,7 +1064,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			}, 8, ["aria-label"]);
 		};
 	}
-}), Ut = "text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium cursor-pointer", Wt = /* @__PURE__ */ g({
+}), Jt = "text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium cursor-pointer", Yt = /* @__PURE__ */ g({
 	__name: "AppLink",
 	props: { to: {} },
 	setup(e) {
@@ -1053,23 +1072,23 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			let r = T("RouterLink");
 			return e.to === void 0 ? (x(), u("a", {
 				key: 1,
-				class: y(Ut),
+				class: y(Jt),
 				role: "button",
 				tabindex: "0"
 			}, [w(t.$slots, "default")])) : (x(), c(r, {
 				key: 0,
 				to: e.to,
-				class: y(Ut)
+				class: y(Jt)
 			}, {
 				default: k(() => [w(t.$slots, "default")]),
 				_: 3
 			}, 8, ["to"]));
 		};
 	}
-}), Gt = { class: "d-flex align-center ga-3 min-w-0" }, Kt = { class: "text-h4 font-weight-bold" }, qt = {
+}), Xt = { class: "d-flex align-center ga-3 min-w-0" }, Zt = { class: "text-h4 font-weight-bold" }, Qt = {
 	key: 0,
 	class: "d-flex justify-center align-center py-12"
-}, Jt = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, $t = /*#__PURE__*/ H(/* @__PURE__ */ g({
 	__name: "AppModal",
 	props: {
 		modelValue: { type: Boolean },
@@ -1113,7 +1132,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 				default: k(() => [h(b, { class: "app-modal-card d-flex flex-column" }, {
 					default: k(() => [
 						h(g, { class: "app-modal-header px-6 pt-5 pb-2 d-flex align-center justify-space-between flex-shrink-0" }, {
-							default: k(() => [d("div", Gt, [e.icon ? (x(), c(i, {
+							default: k(() => [d("div", Xt, [e.icon ? (x(), c(i, {
 								key: 0,
 								color: "primary",
 								variant: "tonal",
@@ -1126,7 +1145,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 									_: 1
 								})]),
 								_: 1
-							})) : l("", !0), d("span", Kt, D(e.title), 1)]), h(s, {
+							})) : l("", !0), d("span", Zt, D(e.title), 1)]), h(s, {
 								icon: "",
 								variant: "text",
 								size: "small",
@@ -1141,7 +1160,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 							_: 1
 						}),
 						h(v, { class: "app-modal-body px-6 pb-2 flex-grow-1 overflow-y-auto" }, {
-							default: k(() => [e.contentLoading ? (x(), u("div", qt, [h(_, {
+							default: k(() => [e.contentLoading ? (x(), u("div", Qt, [h(_, {
 								indeterminate: "",
 								color: "primary",
 								size: "48"
@@ -1174,16 +1193,16 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			}, 8, ["modelValue", "max-width"]);
 		};
 	}
-}), [["__scopeId", "data-v-c40b0ea1"]]), Yt = { class: "image-uploader" }, Xt = { class: "image-uploader-card" }, Zt = ["src", "alt"], Qt = {
+}), [["__scopeId", "data-v-c40b0ea1"]]), en = { class: "image-uploader" }, tn = { class: "image-uploader-card" }, nn = ["src", "alt"], rn = {
 	key: 2,
 	class: "image-uploader-loading-overlay"
-}, $t = { class: "image-uploader-actions" }, en = ["disabled"], tn = ["disabled"], nn = {
+}, an = { class: "image-uploader-actions" }, on = ["disabled"], sn = ["disabled"], cn = {
 	key: 0,
 	class: "text-caption text-medium-emphasis mt-1"
-}, rn = {
+}, ln = {
 	key: 1,
 	class: "text-caption text-error mt-1"
-}, an = ["accept"], on = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, un = ["accept"], dn = /*#__PURE__*/ H(/* @__PURE__ */ g({
 	__name: "ImageUploader",
 	props: {
 		modelValue: {},
@@ -1241,39 +1260,39 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 		};
 		return (t, n) => {
 			let r = T("v-progress-circular");
-			return x(), u("div", Yt, [
-				d("div", Xt, [d("div", { class: y(["image-uploader-preview", { "image-uploader-preview--dark": e.dark }]) }, [e.modelValue ? (x(), u("img", {
+			return x(), u("div", en, [
+				d("div", tn, [d("div", { class: y(["image-uploader-preview", { "image-uploader-preview--dark": e.dark }]) }, [e.modelValue ? (x(), u("img", {
 					key: 0,
 					src: e.modelValue,
 					alt: e.altText
-				}, null, 8, Zt)) : (x(), c(O(ue), {
+				}, null, 8, nn)) : (x(), c(O(fe), {
 					key: 1,
 					size: 40,
 					"stroke-width": "1.5",
 					class: "image-uploader-placeholder-icon"
-				})), f.value ? (x(), u("div", Qt, [h(r, {
+				})), f.value ? (x(), u("div", rn, [h(r, {
 					indeterminate: "",
 					color: "primary",
 					size: "32"
-				})])) : l("", !0)], 2), d("div", $t, [d("button", {
+				})])) : l("", !0)], 2), d("div", an, [d("button", {
 					type: "button",
 					class: "image-uploader-btn",
 					disabled: f.value,
 					onClick: m
-				}, [h(O(pe), {
+				}, [h(O(he), {
 					size: 18,
 					"stroke-width": "2"
-				}), d("span", null, D(t.$t("common.change")), 1)], 8, en), d("button", {
+				}), d("span", null, D(t.$t("common.change")), 1)], 8, on), d("button", {
 					type: "button",
 					class: "image-uploader-btn image-uploader-btn--danger",
 					disabled: f.value || !e.modelValue,
 					onClick: b
-				}, [h(O(fe), {
+				}, [h(O(me), {
 					size: 18,
 					"stroke-width": "2"
-				}), d("span", null, D(t.$t("common.remove")), 1)], 8, tn)])]),
-				e.helpText ? (x(), u("div", nn, D(e.helpText), 1)) : l("", !0),
-				p.value ? (x(), u("div", rn, D(p.value), 1)) : l("", !0),
+				}), d("span", null, D(t.$t("common.remove")), 1)], 8, sn)])]),
+				e.helpText ? (x(), u("div", cn, D(e.helpText), 1)) : l("", !0),
+				p.value ? (x(), u("div", ln, D(p.value), 1)) : l("", !0),
 				d("input", {
 					ref_key: "fileInput",
 					ref: s,
@@ -1281,11 +1300,11 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					accept: e.accept,
 					class: "d-none",
 					onChange: v
-				}, null, 40, an)
+				}, null, 40, un)
 			]);
 		};
 	}
-}), [["__scopeId", "data-v-8d1a368c"]]), sn = /* @__PURE__ */ g({
+}), [["__scopeId", "data-v-8d1a368c"]]), fn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppInput",
 	props: {
@@ -1334,7 +1353,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), cn = /* @__PURE__ */ g({
+}), pn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppSelect",
 	props: {
@@ -1383,7 +1402,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), ln = /* @__PURE__ */ g({
+}), mn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppAutocomplete",
 	props: {
@@ -1432,7 +1451,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), un = /* @__PURE__ */ g({
+}), hn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppTextarea",
 	props: {
@@ -1469,7 +1488,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), dn = /* @__PURE__ */ g({
+}), gn = /* @__PURE__ */ g({
 	inheritAttrs: !1,
 	__name: "AppPasswordInput",
 	props: {
@@ -1520,13 +1539,13 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 			]);
 		};
 	}
-}), fn = {
+}), _n = {
 	key: 0,
 	class: "text-body-2 mb-1 text-medium-emphasis"
-}, pn = ["title"], mn = {
+}, vn = ["title"], yn = {
 	key: 1,
 	class: "text-caption text-error mt-1"
-}, hn = /*#__PURE__*/ U(/* @__PURE__ */ g({
+}, bn = /*#__PURE__*/ H(/* @__PURE__ */ g({
 	__name: "AppColorPicker",
 	props: {
 		modelValue: {},
@@ -1543,7 +1562,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 		return (t, n) => {
 			let r = T("v-icon"), s = T("v-color-picker"), p = T("v-text-field"), g = T("v-btn"), _ = T("v-card-actions"), y = T("v-card"), b = T("v-menu");
 			return x(), u("div", null, [
-				e.label ? (x(), u("div", fn, D(e.label), 1)) : l("", !0),
+				e.label ? (x(), u("div", _n, D(e.label), 1)) : l("", !0),
 				h(b, {
 					modelValue: i.value,
 					"onUpdate:modelValue": n[4] ||= (e) => i.value = e,
@@ -1561,7 +1580,7 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					}, {
 						default: k(() => [...n[5] ||= [m("mdi-eyedropper", -1)]]),
 						_: 1
-					}))], 16, pn)]),
+					}))], 16, vn)]),
 					default: k(() => [h(y, {
 						elevation: "4",
 						rounded: "lg"
@@ -1595,54 +1614,54 @@ var Nt = "data:image/svg+xml,%3csvg%20height='20'%20viewBox='0%200%2028%2020'%20
 					})]),
 					_: 1
 				}, 8, ["modelValue"]),
-				f.value ? (x(), u("div", mn, D(o.value[0]), 1)) : l("", !0)
+				f.value ? (x(), u("div", yn, D(o.value[0]), 1)) : l("", !0)
 			]);
 		};
 	}
 }), [["__scopeId", "data-v-392bbcee"]]);
 //#endregion
 //#region src/utils/error.ts
-function gn(e, t) {
+function xn(e, t) {
 	return e instanceof Error ? e.message : e && typeof e == "object" && "message" in e ? String(e.message) : t;
 }
 //#endregion
 //#region src/utils/logger.ts
-var Q = !1, $ = !1;
-function _n(e) {
-	Q = e.isDev, $ = e.sentryEnabled;
+var Z = !1, Q = !1;
+function Sn(e) {
+	Z = e.isDev, Q = e.sentryEnabled;
 }
-var vn = {
+var $ = {
 	error(e, ...t) {
-		if (Q && console.error(e, ...t), $) {
+		if (Z && console.error(e, ...t), Q) {
 			let n = t.find((e) => e instanceof Error);
-			me.captureException(n ?? Error(e), { extra: {
+			A.captureException(n ?? Error(e), { extra: {
 				message: e,
 				context: t
 			} });
 		}
 	},
 	warn(e, ...t) {
-		Q && console.warn(e, ...t), $ && me.captureMessage(e, {
+		Z && console.warn(e, ...t), Q && A.captureMessage(e, {
 			level: "warning",
 			extra: { context: t }
 		});
 	},
 	info(e, ...t) {
-		Q && console.info(e, ...t);
+		Z && console.info(e, ...t);
 	},
 	debug(e, ...t) {
-		Q && console.debug(e, ...t);
+		Z && console.debug(e, ...t);
 	}
 };
 //#endregion
 //#region src/composables/useApiCall.ts
-function yn(e) {
+function Cn(e) {
 	return async function(t, n = "API request failed:") {
 		e.value = !0;
 		try {
 			return await t();
 		} catch (e) {
-			throw vn.error(n, gn(e, "Unknown error")), e;
+			throw $.error(n, xn(e, "Unknown error")), e;
 		} finally {
 			e.value = !1;
 		}
@@ -1650,11 +1669,11 @@ function yn(e) {
 }
 //#endregion
 //#region src/constants/datatable.ts
-var bn = 10, xn = (e) => {
+var wn = 10, Tn = (e) => {
 	let { locale: t } = r({ useScope: "global" });
-	te(() => t.value, () => {
+	ne(() => t.value, () => {
 		e();
 	}), e();
 };
 //#endregion
-export { M as AQUA_THEME, ln as AppAutocomplete, hn as AppColorPicker, sn as AppInput, Wt as AppLink, Jt as AppModal, dn as AppPasswordInput, cn as AppSelect, un as AppTextarea, j as BLUE_THEME, xt as BlankLayout, Re as BreadcrumbBar, F as CYAN_THEME, Ze as ConfirmationModal, V as DARK_AQUA_THEME, B as DARK_BLUE_THEME, be as DARK_CYAN_THEME, Ce as DARK_DEFAULT_THEME, Se as DARK_EMERALD_THEME, ye as DARK_GREEN_THEME, xe as DARK_ORANGE_THEME, H as DARK_PURPLE_THEME, bn as DEFAULT_ITEMS_PER_PAGE, R as DEFAULT_THEME, L as EMERALD_THEME, Ot as ErrorPage, Ee as FormCard, bt as FullLayout, P as GREEN_THEME, ct as HeaderLeftWidgetsKey, lt as HeaderRightWidgetsKey, on as ImageUploader, Vt as LanguagesMenu, st as LogoComponentKey, dt as LogoLinkKey, Ht as ModeToggle, Ct as NotFoundArt, I as ORANGE_THEME, N as PURPLE_THEME, Ue as PageHeader, Oe as ParentCard, Ge as PillTabs, ut as SidebarItemsKey, Ke as TagChip, Xe as TextItem, $e as VuetifyAppKit, _n as configureLogger, we as createAppVuetify, gn as getErrorMessage, et as getInitials, tt as getSubdomain, nt as getTenantFromPath, G as getTenantStorageKey, Z as getUserLanguage, vn as logger, ot as setCustomizerDefaults, jt as setDefaultLanguage, At as setI18nLanguage, Mt as setupI18n, yn as useApiCall, J as useCustomizerStore, xn as useI18nTranslation };
+export { ve as AQUA_THEME, mn as AppAutocomplete, bn as AppColorPicker, fn as AppInput, Yt as AppLink, $t as AppModal, gn as AppPasswordInput, pn as AppSelect, hn as AppTextarea, M as BLUE_THEME, Et as BlankLayout, Ve as BreadcrumbBar, F as CYAN_THEME, nt as ConfirmationModal, V as DARK_AQUA_THEME, B as DARK_BLUE_THEME, Ce as DARK_CYAN_THEME, Ee as DARK_DEFAULT_THEME, Te as DARK_EMERALD_THEME, Se as DARK_GREEN_THEME, we as DARK_ORANGE_THEME, xe as DARK_PURPLE_THEME, wn as DEFAULT_ITEMS_PER_PAGE, R as DEFAULT_THEME, L as EMERALD_THEME, Nt as ErrorPage, ke as FormCard, Tt as FullLayout, P as GREEN_THEME, pt as HeaderLeftWidgetsKey, mt as HeaderRightWidgetsKey, dn as ImageUploader, Kt as LanguagesMenu, ft as LogoComponentKey, gt as LogoLinkKey, qt as ModeToggle, Ot as NotFoundArt, I as ORANGE_THEME, N as PURPLE_THEME, Je as PageHeader, je as ParentCard, Xe as PillTabs, ht as SidebarItemsKey, Ze as TagChip, tt as TextItem, it as VuetifyAppKit, Sn as configureLogger, De as createAppVuetify, xn as getErrorMessage, at as getInitials, ot as getSubdomain, st as getTenantFromPath, W as getTenantStorageKey, X as getUserLanguage, $ as logger, dt as setCustomizerDefaults, It as setDefaultLanguage, Ft as setI18nLanguage, Lt as setupI18n, Cn as useApiCall, q as useCustomizerStore, Tn as useI18nTranslation };

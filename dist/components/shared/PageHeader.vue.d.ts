@@ -1,10 +1,14 @@
+import type { RouteLocationRaw } from 'vue-router';
+/** Page title with an optional subtitle, a back button before the title when `back` is set, and an actions slot. */
 type __VLS_Props = {
     title: string;
     subtitle?: string;
+    back?: RouteLocationRaw;
+    backLabel?: string;
 };
-declare var __VLS_1: {};
+declare var __VLS_6: {};
 type __VLS_Slots = {} & {
-    actions?: (props: typeof __VLS_1) => any;
+    actions?: (props: typeof __VLS_6) => any;
 };
 declare const __VLS_base: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
